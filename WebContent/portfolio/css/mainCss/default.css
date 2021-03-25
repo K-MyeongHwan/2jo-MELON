@@ -17,6 +17,12 @@ ul{
 a{
 	text-decoration: none;
 }
+header{
+	width:100vw;
+	height:100vh;
+	overflow:hidden;
+    border:1px solid blue;
+}
 .cf:after{
 	content: "";
 	display: block;
@@ -24,7 +30,6 @@ a{
 }
 .inner{
 	width: 1200px;
-	margin-left : 10%;
 }
 #wrap{
 	width: 100%;
