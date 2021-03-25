@@ -62,12 +62,8 @@ $(document).ready(function () {
 		selfiepath: "",
 	  }
   ];
-
-  //fullpage//
-  $("#fullpage").fullpage({
-    sectionSelector: ".section",
-    scrolloverflow: true,
-    anchors: [
+  var index = 0;
+    var anchors = [
       "1stPage",
       "2ndPage",
       "3rdPage",
@@ -76,7 +72,42 @@ $(document).ready(function () {
       "6thPage",
       "7thPage",
       "8thPage",
-    ],
+    ];
+    
+    //이전 버튼
+    $('#prevbtn').on({
+      click : function(){
+        if(index-1===-1) {
+          index=0;
+        }
+        $('#prevbtn').attr("href","#"+ anchors[--index]);
+  
+      }
+    })
+
+    //노래재생,정지버튼
+    $('#pausebtn').on({
+      click : function(){
+        alert("잘가");
+      }
+    })
+    
+    //다음버튼
+    $('#nextbtn').on({
+      click : function(){
+        if(index+1===8) {
+          index=-1;
+        }
+        $('#nextbtn').attr("href","#"+ anchors[++index]);
+
+      }
+    })
+
+  //fullpage//
+  $("#fullpage").fullpage({
+    sectionSelector: ".section",
+    scrolloverflow: true,
+    anchors: anchors,
     navigation: true,
     navigationTooltips: [
       "Intro",
@@ -147,114 +178,7 @@ $(document).ready(function () {
         break;
       }
     }
-  }
-
-  //fullpage//
-  $("#fullpage").fullpage({
-    sectionSelector: ".section",
-    scrolloverflow: true,
-    anchors: [
-      "1stPage",
-      "2ndPage",
-      "3rdPage",
-      "4thPage",
-      "5thPage",
-      "6thPage",
-      "7thPage",
-      "8thPage",
-    ],
-    navigation: true,
-    navigationTooltips: [
-      "Intro",
-      "About",
-      "Portfolio01",
-      "Portfolio02",
-      "Portfolio03",
-      "Portfolio04",
-      "Portfolio05",
-      "Contact",
-    ],
-    slidesNavigation: true,
-    menu: "#menu",
-    afterLoad: function (origin, destination, direction) {
-      if (origin) {
-        audioPlay(destination.index, audio); // destination.index >> 현재 페이지 번호
-											 // audio 배열을 같이 넣어줌
-      }
-    },
-  });
-  //fullpage//
-
-  //인원에 맞는 노래 플레이//
-  function audioPlay(index, audio) {
-    console.log(audio);
-    switch (index) {
-      case 0: {
-        $("#realaudio").attr("src", "");
-        break;
-      }
-      case 1: {
-        console.log("this is " + index);
-        console.log(audio[index - 1]);
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 2: {
-        console.log("this is " + index);
-        console.log(audio[index - 1]);
-
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 3: {
-        console.log("this is " + index);
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 4: {
-        console.log("this is " + index);
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 5: {
-        console.log("this is " + index);
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 6: {
-        console.log("this is " + index);
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-    }
-  }
-  //클립보드복사//
-  function copyToClipboard(val) {
-    var t = document.createElement("textarea");
-    document.body.appendChild(t);
-    t.value = val;
-    t.select();
-    document.execCommand("copy");
-    document.body.removeChild(t);
-  }
-  $(".cInfo01 span").click(function () {
-    copyToClipboard("thdek13@hanmail.net");
-    alert("클립보드로 복사되었습니다.");
-  });
-  $(".cInfo02 span").click(function () {
-    copyToClipboard("jeong1233");
-    alert("클립보드로 복사되었습니다.");
-  });
-  $(".cInfo03 span").click(function () {
-    copyToClipboard("http://jeong1233.dothome.co.kr/portfolio");
-    alert("클립보드로 복사되었습니다.");
-  });
+  };
   //클립보드복사//
 
   //경고창//
