@@ -1,3 +1,19 @@
+function addJavascript(jsname) {// functions.js 불러오기
+
+	var th = document.getElementsByTagName('head')[0];
+
+	var s = document.createElement('script');
+
+	s.setAttribute('type','text/javascript');
+
+	s.setAttribute('src',jsname);
+
+	th.appendChild(s);
+
+}
+addJavascript('functions.js');
+
+
 $(document).ready(function () {
   //menu//
   //mlnb01//
@@ -18,21 +34,6 @@ $(document).ready(function () {
     });
   });
 
-  /*each문 사용법
-			$(this).parents('.mlnb').each(function(){
-					$(this).css({
-						width:'50%',
-						height:'100%'
-					})
-				  })*/
-
-  /*$(this).parents('.mlnb').each(function(){
-					$(this).css({
-						width:'0'
-						//height:'0'
-					})
-				  })*/
-
   //menu//
 
   let audio = [
@@ -40,34 +41,36 @@ $(document).ready(function () {
       albumpath: "",
       audiopath: "music/braveGirls.mp3",
       selfiepath: "",
-    },{
-		albumpath: "",
-		audiopath: "music/celebrity.mp3",
-		selfiepath: "",
-	  },{
-		albumpath: "",
-		audiopath: "music/coffee.mp3",
-		selfiepath: "",
-	  },{
-		albumpath: "",
-		audiopath: "music/braveGirls.mp3",
-		selfiepath: "",
-	  },{
-		albumpath: "",
-		audiopath: "music/celebrity.mp3",
-		selfiepath: "",
-	  },{
-		albumpath: "",
-		audiopath: "music/coffee.mp3",
-		selfiepath: "",
-	  }
+    },
+    {
+      albumpath: "",
+      audiopath: "music/celebrity.mp3",
+      selfiepath: "",
+    },
+    {
+      albumpath: "",
+      audiopath: "music/coffee.mp3",
+      selfiepath: "",
+    },
+    {
+      albumpath: "",
+      audiopath: "music/braveGirls.mp3",
+      selfiepath: "",
+    },
+    {
+      albumpath: "",
+      audiopath: "music/celebrity.mp3",
+      selfiepath: "",
+    },
+    {
+      albumpath: "",
+      audiopath: "music/coffee.mp3",
+      selfiepath: "",
+    },
   ];
 
-  //fullpage//
-  $("#fullpage").fullpage({
-    sectionSelector: ".section",
-    scrolloverflow: true,
-    anchors: [
+  var index = 0;
+    var anchors = [
       "1stPage",
       "2ndPage",
       "3rdPage",
@@ -76,93 +79,66 @@ $(document).ready(function () {
       "6thPage",
       "7thPage",
       "8thPage",
-    ],
-    navigation: true,
-    navigationTooltips: [
-      "Intro",
-      "About",
-      "Portfolio01",
-      "Portfolio02",
-      "Portfolio03",
-      "Portfolio04",
-      "Portfolio05",
-      "Contact",
-    ],
-    slidesNavigation: true,
-    menu: "#menu",
-    afterLoad: function (origin, destination, direction) {
-      if (origin) {
-        audioPlay(destination.index, audio); // destination.index >> 현재 페이지 번호
+    ];
+    
+    //이전 버튼
+    $('#prevbtn').on({
+      click : function(){
+        if(index-1===-1) {
+          index=0;
+        }
+        $('#prevbtn').attr("href","#"+ anchors[--index]);
+  
       }
-    }
+    })
+
+    //노래 재생, 정지 버튼                                                                                  //from stay
+  $("#pausebtn").on({
+    click: function () {
+      let check = $("#realaudio").attr("class"); //audio의 class가 playing인지 pause인지 구별하기위한 변수
+      console.log(check);
+      console.log("THIS IS PAUSEBTN");
+
+      let track;
+      $(" div[class*=active]").each(function () {
+        // div중 class에 "active"가 포함된
+        let id = $(this).attr("id");
+        if (id !== undefined) {
+          console.log(id);
+          if (id.includes("section")) {
+            track = id.substring(id.length - 1);
+            console.log(track);
+          }
+        }
+      });
+
+      console.log("track is not 0");
+      if (check === "playing") {
+        $("#realaudio").removeClass("playing").addClass("pause");
+        $("#realaudio").attr("src", "");
+      } else if (check === "pause") {
+        $("#realaudio").removeClass("pause").addClass("playing");
+        audioPlay(track, audio);
+      }
+    },
   });
-  //fullpage//
+    
+    //다음버튼
+    $('#nextbtn').on({
+      click : function(){
+        if(index+1===8) {
+          index=-1;
+        }
+        $('#nextbtn').attr("href","#"+ anchors[++index]);
 
-  //인원에 맞는 노래 플레이//
-  //페이지에 맞는 번호와 audio index를 매칭해서 노래 플레이
-  function audioPlay(index, audio) {
-	  console.log(audio)
-    switch (index) {
-      case 0: {
-		$("#realaudio").attr("src", "");
-		  break;
       }
-      case 1: {
-        console.log("this is " + index);
-		console.log(audio[index-1])
-        $("#realaudio").attr("src", audio[index-1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 2: {
-        console.log("this is " + index);
-		console.log(audio[index-1])
-
-        $("#realaudio").attr("src", audio[index-1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 3: {
-        console.log("this is " + index);
-        $("#realaudio").attr("src", audio[index-1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 4: {
-        console.log("this is " + index);
-		$("#realaudio").attr("src", audio[index-1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 5: {
-        console.log("this is " + index);
-		$("#realaudio").attr("src", audio[index-1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 6: {
-        console.log("this is " + index);
-		$("#realaudio").attr("src", audio[index-1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-    }
-  }
+    })
 
   //fullpage//
   $("#fullpage").fullpage({
     sectionSelector: ".section",
     scrolloverflow: true,
-    anchors: [
-      "1stPage",
-      "2ndPage",
-      "3rdPage",
-      "4thPage",
-      "5thPage",
-      "6thPage",
-      "7thPage",
-      "8thPage",
-    ],
+    anchors: anchors,
     navigation: true,
     navigationTooltips: [
       "Intro",
@@ -176,85 +152,49 @@ $(document).ready(function () {
     ],
     slidesNavigation: true,
     menu: "#menu",
-    afterLoad: function (origin, destination, direction) {
+    afterLoad: function (origin, destination, direction) {                                  //from stay
       if (origin) {
+        progressbar_start(origin.index, destination.index);
         audioPlay(destination.index, audio); // destination.index >> 현재 페이지 번호
-											 // audio 배열을 같이 넣어줌
       }
     },
   });
   //fullpage//
+  
+  //progressbar reset하고 start하기
+  function progressbar_start(){
+    let page;//페이지 번호
+    $(" div[class*=active]").each(function () {
+      // div중 class에 "active"가 포함된
+      let id = $(this).attr("id");
+      if (id !== undefined) {
+        console.log(id);
+        if (id.includes("section")) {
+          page = id.substring(id.length - 1);
+          console.log(page);
+        }
+      }
+    });
+    
+  }
+  //progressbar reset하고 start하기
 
   //인원에 맞는 노래 플레이//
-  function audioPlay(index, audio) {
-    console.log(audio);
-    switch (index) {
-      case 0: {
-        $("#realaudio").attr("src", "");
-        break;
-      }
-      case 1: {
-        console.log("this is " + index);
-        console.log(audio[index - 1]);
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 2: {
-        console.log("this is " + index);
-        console.log(audio[index - 1]);
-
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 3: {
-        console.log("this is " + index);
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 4: {
-        console.log("this is " + index);
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 5: {
-        console.log("this is " + index);
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
-      case 6: {
-        console.log("this is " + index);
-        $("#realaudio").attr("src", audio[index - 1].audiopath);
-        $("#realaudio").play;
-        break;
-      }
+  //페이지에 맞는 번호와 audio index를 매칭해서 노래 플레이
+  function audioPlay(index, audio) {                                                                //from stay
+    if (index !== 0) {
+      console.log("this is " + index);
+      console.log(audio[index - 1]);
+      $("#realaudio").attr("src", audio[index - 1].audiopath);
+      $("#realaudio").play;
+      $("#realaudio").attr("class", "playing");
+    } else {
+      console.log("this is " + index);
+      console.log(audio[index - 1]);
+      $("#realaudio").attr("src", "");
     }
-  }
-  //클립보드복사//
-  function copyToClipboard(val) {
-    var t = document.createElement("textarea");
-    document.body.appendChild(t);
-    t.value = val;
-    t.select();
-    document.execCommand("copy");
-    document.body.removeChild(t);
-  }
-  $(".cInfo01 span").click(function () {
-    copyToClipboard("thdek13@hanmail.net");
-    alert("클립보드로 복사되었습니다.");
-  });
-  $(".cInfo02 span").click(function () {
-    copyToClipboard("jeong1233");
-    alert("클립보드로 복사되었습니다.");
-  });
-  $(".cInfo03 span").click(function () {
-    copyToClipboard("http://jeong1233.dothome.co.kr/portfolio");
-    alert("클립보드로 복사되었습니다.");
-  });
+
+  };
   //클립보드복사//
 
   //경고창//
