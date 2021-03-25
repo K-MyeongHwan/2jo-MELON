@@ -17,6 +17,27 @@ $(document).ready(function () {
       width: "0",
     });
   });
+  //이전 버튼
+  $("#prevbtn").on({
+    click : function(){
+
+    }
+  })
+  //노래 재생, 정지 버튼
+  $('#pausebtn').on({
+    click : function(){
+
+    }
+    
+  })
+  //다음 버튼
+  $('#nextbtn').on({
+    click : function(){
+
+    }
+    
+  })
+  
 
   /*each문 사용법
 			$(this).parents('.mlnb').each(function(){
