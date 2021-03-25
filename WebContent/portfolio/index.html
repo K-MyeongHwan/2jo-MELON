@@ -40,11 +40,20 @@
 	<div class="nav">
 	<div class="navbar">
 		<ul style="list-style-type: none">
+<<<<<<< HEAD
 			<li><img id="prevbtn" src="icon/prev.png" width="50px" height="50px"
 				style="margin-bottom: 350px"></li>
 			<li><img id="pausebtn" src="icon/puase.png" width="40px" height="40px"
 				style="margin-bottom: 300px"></li>
 			<li><img id="nextbtn" src="icon/next.png" width="50px" height="50px"></li>
+=======
+			<li><a href="#1stPage" id="prevbtn"><img src="icon/prev.png" width="50px" height="50px"
+				 ></a></li>
+			<li><img src="icon/puase.png" width="40px" height="40px"
+				id="prevbtn" style="margin-top: 350px;margin-bottom: 300px"></li>
+			<li><a href="#2ndPage" id="nextbtn"><img src="icon/next.png" width="50px" height="50px"
+				></a></li>
+>>>>>>> 9c27de315dfcd9979cb0852dc1fdf3495d90207a
 		</ul>
 	</div>
 	</div>
@@ -52,29 +61,6 @@
 		<!-- Audio Player-->
 		<iframe src="" id="realaudio" style="display: none"></iframe>		
 		<!-- Audio Player-->
-		<header id="header">
-			<!--menulnb-->
-			<ul class="mlnb" id="menu">
-				<li><i class="far fa-times-circle"></i></li>
-				<li data-menuanchor="1stPage" class="lnbIntro"><a
-					href="#1stPage">MAIN</a></li>
-				<li data-menuanchor="2ndPage" class="lnbAbout"><a
-					href="#2ndPage">김명환</a></li>
-				<li data-menuanchor="3rdPage" class="lnbPort01"><a
-					href="#3rdPage"> 김영훈</a></li>
-				<li data-menuanchor="4thPage" class="lnbPort02"><a
-					href="#4thPage"> 김현진</a></li>
-				<li data-menuanchor="5thPage" class="lnbPort03"><a
-					href="#5thPage"> 이가희</a></li>
-				<li data-menuanchor="6thPage" class="lnbPort04"><a
-					href="#6thPage"> 이상엽</a></li>
-				<li data-menuanchor="7thPage" class="lnbPort05"><a
-					href="#7thPage"> 서태희</a></li>
-				<li data-menuanchor="8thPage" class="lnbContact"><a
-					href="#8thPage"> 참조</a></li>
-			</ul>
-			<!--menulnb-->
-		</header>
 		<!--fullpage-->
 		<div id="fullpage">
 			<!--section0-->
@@ -164,7 +150,7 @@
 
 						<!--우측메뉴-->
 						<dl class="aboutR">
-							<img src="images/graph.png" width="450px" height="450px">
+							<img src="images/graph1.png" width="600px" height="450px">
 							<div class="processbar">
 								<main>
 									<div class="main-content">
@@ -175,33 +161,33 @@
 											</h3>
 
 											<span class="cssProgress-label-title">먹는거 </span> <span
-												class="cssProgress-label-num">75%</span>
+												class="cssProgress-label-num">70%</span>
 											<div class="cssProgress">
 												<div class="progress">
 													<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
 													<div class="cssProgress-bar cssProgress-active"
-														data-percent="75" style="width: 55%;"></div>
+														data-percent="70" style="width: 55%;"></div>
 												</div>
 
 											</div>
-											<span class="cssProgress-label-title">꼰대력 </span> <span
-												class="cssProgress-label-num">65%</span>
+											<span class="cssProgress-label-title">찡찡거력 </span> <span
+												class="cssProgress-label-num">99.9%</span>
 
 											<div class="cssProgress">
 												<div class="progress">
 													<div
 														class="cssProgress-bar cssProgress-success cssProgress-active"
-														data-percent="65" style="width: 65%;"></div>
+														data-percent="99.9" style="width: 65%;"></div>
 												</div>
 											</div>
 
-											<span class="cssProgress-label-title">리드력 </span> <span
-												class="cssProgress-label-num">55%</span>
+											<span class="cssProgress-label-title">호기심 </span> <span
+												class="cssProgress-label-num">100%</span>
 											<div class="cssProgress">
 												<div class="progress">
 													<div
 														class="cssProgress-bar cssProgress-warning cssProgress-active"
-														data-percent="55" style="width: 55%;"></div>
+														data-percent="100" style="width: 55%;"></div>
 												</div>
 											</div>
 
@@ -224,13 +210,13 @@
 
 			<!--section02-->
 			<div class="section" id="section2">
-				<!--portfolio01-->
-				<div class="portfolio01">
-
+			
+				<!--About-->
+				<div class="about" style="float: left">
 					<!--inner-->
 					<div class="inner cf">
 						<!--좌측메뉴-->
-						<div class="portL">
+						<div class="aboutL">
 							<!--텍스트박스-->
 							<div class="txtBox">
 								<!--메뉴-->
@@ -239,75 +225,105 @@
 								</div>
 								<!--메뉴-->
 								<!--페이지소개-->
-								<p class="pageName">Portfolio</p>
+								<p class="pageName">김명환 ( Song. 요즘것들 )</p>
 								<!--페이지소개-->
-								<!--로고-->
-								<p class="logo">
-									<img src="images/logo.png" alt="로고">
-								</p>
-								<!--로고-->
-								<!--모바일보러가기-->
-								<span class="mViewBtn"> <a
-									href="https://jeong1233.github.io/website/thePicker/index.html"
-									target="_blank"> 버튼 </a>
-								</span>
-								<!--모바일보러가기-->
 								<!--메인텍스트-->
-								<div class="portTxt">
-									<p>#01</p>
-									<h2>thePicker</h2>
-									<h3>웹(UI/UX)</h3>
+								<div class="aboutTxt">
+									<!--사진-->
+									<p class="aboutPhoto">사진</p>
+									<!--사진-->
+									<!--소개글-->
+									<p class="aboutIntro">
+										웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
+										데헷
+									</p>
+									<!--소개글-->
+									<!--이름서명-->
+									<div class="nameSign">
+										<!--이름-->
+										<span class="name"> 김 명환 </span>
+										<!--이름-->
+										<!--서명-->
+										<img src="images/sign.png" alt="서명" class="sign">
+										<!--서명-->
+										<!--이름서명-->
+									</div>
 								</div>
 								<!--메인텍스트-->
-								<!--홈페이지화면-->
-								<p class="mainPage">화면</p>
-								<!--홈페이지화면-->
 
 							</div>
 							<!--텍스트박스-->
-
 						</div>
 						<!--좌측메뉴-->
 
 						<!--우측메뉴-->
-						<dl class="portR">
-							<dt class="firstTit">퍼블리싱 100%</dt>
-							<dd class="firstTxt">
-								Main Page<br> 여러 버전의 메인 슬라이드<br> 구매가능 상품 슬라이드로 나열<br>
-								여백을 활용한 심플한 디자인<br> sns 연동
-							</dd>
-							<dt>디자인컨셉</dt>
-							<dd>심플, 친환경, 자연친화</dd>
-							<dt>주컬러</dt>
-							<dd>green, white, black</dd>
-							<dt class="lastTit">타겟층</dt>
-							<dd class="lastTxt">환경에 관심이 많은 전연령층</dd>
-							<!--뷰버튼-->
-							<p class="viewBtnOn">
-								<a
-									href="https://jeong1233.github.io/website/thePicker/index.html"
-									target="_blank"> 버튼 </a>
-							</p>
-							<!--뷰버튼-->
+						<dl class="aboutR">
+							<img src="images/graph1.png" width="600px" height="450px">
+							<div class="processbar">
+								<main>
+									<div class="main-content">
 
+										<div id="example-5" class="examples">
+											<h3>
+												<span>○</span> SKill
+											</h3>
+
+											<span class="cssProgress-label-title">먹는거 </span> <span
+												class="cssProgress-label-num">70%</span>
+											<div class="cssProgress">
+												<div class="progress">
+													<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
+													<div class="cssProgress-bar cssProgress-active"
+														data-percent="70" style="width: 55%;"></div>
+												</div>
+
+											</div>
+											<span class="cssProgress-label-title">찡찡거력 </span> <span
+												class="cssProgress-label-num">99.9%</span>
+
+											<div class="cssProgress">
+												<div class="progress">
+													<div
+														class="cssProgress-bar cssProgress-success cssProgress-active"
+														data-percent="99.9" style="width: 65%;"></div>
+												</div>
+											</div>
+
+											<span class="cssProgress-label-title">호기심 </span> <span
+												class="cssProgress-label-num">100%</span>
+											<div class="cssProgress">
+												<div class="progress">
+													<div
+														class="cssProgress-bar cssProgress-warning cssProgress-active"
+														data-percent="100" style="width: 55%;"></div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- @end #example-5 -->
+								</main>
+							</div>
 						</dl>
-						<!--우측메뉴-->
+
 					</div>
 					<!--inner-->
 				</div>
-				<!--portfolio01-->
+				<!--About-->
+
+
 			</div>
 			<!--section02-->
 
 			<!--section03-->
 			<div class="section" id="section3">
-				<!--portfolio02-->
-				<div class="portfolio02">
-
+			
+				<!--About-->
+				<div class="about" style="float: left">
 					<!--inner-->
 					<div class="inner cf">
 						<!--좌측메뉴-->
-						<div class="portL">
+						<div class="aboutL">
 							<!--텍스트박스-->
 							<div class="txtBox">
 								<!--메뉴-->
@@ -316,31 +332,31 @@
 								</div>
 								<!--메뉴-->
 								<!--페이지소개-->
-								<p class="pageName">Portfolio</p>
+								<p class="pageName">김명환 ( Song. 요즘것들 )</p>
 								<!--페이지소개-->
-								<!--로고-->
-								<p class="logo">
-									<img src="images/logo.png" alt="로고">
-								</p>
-								<!--로고-->
-								<!--모바일보러가기-->
-								<span class="mViewBtn"> <a
-									href="https://jeong1233.github.io/website/reeonyang/html/index.html"
-									target="_blank"> 버튼 </a>
-								</span>
-								<!--모바일보러가기-->
 								<!--메인텍스트-->
-								<div class="portTxt">
-									<p>#02</p>
-									<h2>
-										언양<br> 초등학교
-									</h2>
-									<h3>웹(UI/UX)</h3>
+								<div class="aboutTxt">
+									<!--사진-->
+									<p class="aboutPhoto">사진</p>
+									<!--사진-->
+									<!--소개글-->
+									<p class="aboutIntro">
+										웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
+										데헷
+									</p>
+									<!--소개글-->
+									<!--이름서명-->
+									<div class="nameSign">
+										<!--이름-->
+										<span class="name"> 김 명환 </span>
+										<!--이름-->
+										<!--서명-->
+										<img src="images/sign.png" alt="서명" class="sign">
+										<!--서명-->
+										<!--이름서명-->
+									</div>
 								</div>
 								<!--메인텍스트-->
-								<!--홈페이지화면-->
-								<p class="mainPage">화면</p>
-								<!--홈페이지화면-->
 
 							</div>
 							<!--텍스트박스-->
@@ -348,269 +364,373 @@
 						<!--좌측메뉴-->
 
 						<!--우측메뉴-->
-						<dl class="portR">
-							<dt class="firstTit">퍼블리싱 100%</dt>
-							<dd class="firstTxt">
-								Main Page<br> 넓은 여백과 아이콘으로 심플한 디자인을 구성해<br> 가독성 높힘
-							</dd>
-							<dt>디자인컨셉</dt>
-							<dd>심플, 교육적, 이지적, 공공기관</dd>
-							<dt>주컬러</dt>
-							<dd>white, black</dd>
-							<dt class="lastTit">타겟층</dt>
-							<dd class="lastTxt">언양초에 다니고 있는 10~50대</dd>
-							<!--뷰버튼-->
+						<dl class="aboutR">
+							<img src="images/graph1.png" width="600px" height="450px">
+							<div class="processbar">
+								<main>
+									<div class="main-content">
 
-							<p class="viewBtnOn">
-								<a
-									href="https://jeong1233.github.io/website/reeonyang/html/index.html"
-									target="_blank"> 버튼 </a>
-							</p>
+										<div id="example-5" class="examples">
+											<h3>
+												<span>○</span> SKill
+											</h3>
 
-							<!--뷰버튼-->
+											<span class="cssProgress-label-title">먹는거 </span> <span
+												class="cssProgress-label-num">70%</span>
+											<div class="cssProgress">
+												<div class="progress">
+													<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
+													<div class="cssProgress-bar cssProgress-active"
+														data-percent="70" style="width: 55%;"></div>
+												</div>
 
+											</div>
+											<span class="cssProgress-label-title">찡찡거력 </span> <span
+												class="cssProgress-label-num">99.9%</span>
 
+											<div class="cssProgress">
+												<div class="progress">
+													<div
+														class="cssProgress-bar cssProgress-success cssProgress-active"
+														data-percent="99.9" style="width: 65%;"></div>
+												</div>
+											</div>
+
+											<span class="cssProgress-label-title">호기심 </span> <span
+												class="cssProgress-label-num">100%</span>
+											<div class="cssProgress">
+												<div class="progress">
+													<div
+														class="cssProgress-bar cssProgress-warning cssProgress-active"
+														data-percent="100" style="width: 55%;"></div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<!-- @end #example-5 -->
+								</main>
+							</div>
 						</dl>
-						<!--우측메뉴-->
+
 					</div>
 					<!--inner-->
 				</div>
-				<!--portfolio02-->
+				<!--About-->
+
+
 			</div>
 			<!--section03-->
 
 			<!--section04-->
 			<div class="section" id="section4">
-				<!--portfolio03-->
-				<div class="portfolio03">
-
-					<!--inner-->
-					<div class="inner cf">
-						<!--좌측메뉴-->
-						<div class="portL">
-							<!--텍스트박스-->
-							<div class="txtBox">
-								<!--메뉴-->
-								<div class="menu menu01">
-									<img src="images/menu.png" alt="메뉴버튼">
+					<!--About-->
+					<div class="about" style="float: left">
+						<!--inner-->
+						<div class="inner cf">
+							<!--좌측메뉴-->
+							<div class="aboutL">
+								<!--텍스트박스-->
+								<div class="txtBox">
+									<!--메뉴-->
+									<div class="menu menu01">
+										<img src="images/menu.png" alt="메뉴버튼">
+									</div>
+									<!--메뉴-->
+									<!--페이지소개-->
+									<p class="pageName">김명환 ( Song. 요즘것들 )</p>
+									<!--페이지소개-->
+									<!--메인텍스트-->
+									<div class="aboutTxt">
+										<!--사진-->
+										<p class="aboutPhoto">사진</p>
+										<!--사진-->
+										<!--소개글-->
+										<p class="aboutIntro">
+											웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
+											데헷
+										</p>
+										<!--소개글-->
+										<!--이름서명-->
+										<div class="nameSign">
+											<!--이름-->
+											<span class="name"> 김 명환 </span>
+											<!--이름-->
+											<!--서명-->
+											<img src="images/sign.png" alt="서명" class="sign">
+											<!--서명-->
+											<!--이름서명-->
+										</div>
+									</div>
+									<!--메인텍스트-->
+	
 								</div>
-								<!--메뉴-->
-								<!--페이지소개-->
-								<p class="pageName">Portfolio</p>
-								<!--페이지소개-->
-								<!--로고-->
-								<p class="logo">
-									<img src="images/logo.png" alt="로고">
-								</p>
-								<!--로고-->
-								<!--모바일보러가기-->
-								<span class="mViewBtn"> <a
-									href="https://jeong1233.github.io/website/hollys/index.html"
-									target="_blank"> 버튼 </a>
-								</span>
-								<!--모바일보러가기-->
-								<!--메인텍스트-->
-								<div class="portTxt">
-									<p>#03</p>
-									<h2>할리스 커피</h2>
-									<h3>웹(UI/UX)</h3>
-								</div>
-								<!--메인텍스트-->
-								<!--홈페이지화면-->
-								<p class="mainPage">화면</p>
-								<!--홈페이지화면-->
-
+								<!--텍스트박스-->
 							</div>
-							<!--텍스트박스-->
+							<!--좌측메뉴-->
+	
+							<!--우측메뉴-->
+							<dl class="aboutR">
+								<img src="images/graph1.png" width="600px" height="450px">
+								<div class="processbar">
+									<main>
+										<div class="main-content">
+	
+											<div id="example-5" class="examples">
+												<h3>
+													<span>○</span> SKill
+												</h3>
+	
+												<span class="cssProgress-label-title">먹는거 </span> <span
+													class="cssProgress-label-num">70%</span>
+												<div class="cssProgress">
+													<div class="progress">
+														<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
+														<div class="cssProgress-bar cssProgress-active"
+															data-percent="70" style="width: 55%;"></div>
+													</div>
+	
+												</div>
+												<span class="cssProgress-label-title">찡찡거력 </span> <span
+													class="cssProgress-label-num">99.9%</span>
+	
+												<div class="cssProgress">
+													<div class="progress">
+														<div
+															class="cssProgress-bar cssProgress-success cssProgress-active"
+															data-percent="99.9" style="width: 65%;"></div>
+													</div>
+												</div>
+	
+												<span class="cssProgress-label-title">호기심 </span> <span
+													class="cssProgress-label-num">100%</span>
+												<div class="cssProgress">
+													<div class="progress">
+														<div
+															class="cssProgress-bar cssProgress-warning cssProgress-active"
+															data-percent="100" style="width: 55%;"></div>
+													</div>
+												</div>
+	
+											</div>
+										</div>
+										<!-- @end #example-5 -->
+									</main>
+								</div>
+							</dl>
+	
 						</div>
-						<!--좌측메뉴-->
-
-						<!--우측메뉴-->
-						<dl class="portR">
-							<dt class="firstTit">퍼블리싱 100%</dt>
-							<dd class="firstTxt">
-								Main Page<br> 할리스 브랜드 컬러에 맞춰 사용자 친화적<br> 디자인 요소를 가미
-							</dd>
-							<dt>디자인컨셉</dt>
-							<dd>따뜻함, 커피, 디저트</dd>
-							<dt>주컬러</dt>
-							<dd>red, white</dd>
-							<dt class="lastTit">타겟층</dt>
-							<dd class="lastTxt">카페를 이용하는 전연령층</dd>
-							<!--뷰버튼-->
-							<p class="viewBtnOn">
-								<a href="https://jeong1233.github.io/website/hollys/index.html"
-									target="_blank"> 버튼 </a>
-							</p>
-							<!--뷰버튼-->
-
-						</dl>
-						<!--우측메뉴-->
+						<!--inner-->
 					</div>
-					<!--inner-->
-				</div>
-				<!--portfolio03-->
+					<!--About-->
 			</div>
 			<!--section04-->
 
 			<!--section05-->
 			<div class="section" id="section5">
-				<!--portfolio05-->
-				<div class="portfolio04">
-
-					<!--inner-->
-					<div class="inner cf">
-						<!--좌측메뉴-->
-						<div class="portL">
-							<!--텍스트박스-->
-							<div class="txtBox">
-								<!--메뉴-->
-								<div class="menu menu01">
-									<img src="images/menu.png" alt="메뉴버튼">
+					<!--About-->
+					<div class="about" style="float: left">
+						<!--inner-->
+						<div class="inner cf">
+							<!--좌측메뉴-->
+							<div class="aboutL">
+								<!--텍스트박스-->
+								<div class="txtBox">
+									<!--메뉴-->
+									<div class="menu menu01">
+										<img src="images/menu.png" alt="메뉴버튼">
+									</div>
+									<!--메뉴-->
+									<!--페이지소개-->
+									<p class="pageName">김명환 ( Song. 요즘것들 )</p>
+									<!--페이지소개-->
+									<!--메인텍스트-->
+									<div class="aboutTxt">
+										<!--사진-->
+										<p class="aboutPhoto">사진</p>
+										<!--사진-->
+										<!--소개글-->
+										<p class="aboutIntro">
+											웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
+											데헷
+										</p>
+										<!--소개글-->
+										<!--이름서명-->
+										<div class="nameSign">
+											<!--이름-->
+											<span class="name"> 김 명환 </span>
+											<!--이름-->
+											<!--서명-->
+											<img src="images/sign.png" alt="서명" class="sign">
+											<!--서명-->
+											<!--이름서명-->
+										</div>
+									</div>
+									<!--메인텍스트-->
+	
 								</div>
-								<!--메뉴-->
-								<!--페이지소개-->
-								<p class="pageName">Portfolio</p>
-								<!--페이지소개-->
-								<!--로고-->
-								<p class="logo">
-									<img src="images/logo.png" alt="로고">
-								</p>
-								<!--로고-->
-								<!--모바일보러가기-->
-								<span class="mViewBtn"> <a
-									href="https://jeong1233.github.io/website/hansol/index.html"
-									target="_blank"> 버튼 </a>
-								</span>
-								<!--모바일보러가기-->
-								<!--메인텍스트-->
-								<div class="portTxt">
-									<p>#04</p>
-									<h2>한솔 홈데코 홈데코</h2>
-									<h3>반응형 웹(UI/UX)</h3>
-								</div>
-								<!--메인텍스트-->
-								<!--홈페이지화면-->
-								<p class="mainPage">화면</p>
-								<!--홈페이지화면-->
-
+								<!--텍스트박스-->
 							</div>
-							<!--텍스트박스-->
+							<!--좌측메뉴-->
+	
+							<!--우측메뉴-->
+							<dl class="aboutR">
+								<img src="images/graph1.png" width="600px" height="450px">
+								<div class="processbar">
+									<main>
+										<div class="main-content">
+	
+											<div id="example-5" class="examples">
+												<h3>
+													<span>○</span> SKill
+												</h3>
+	
+												<span class="cssProgress-label-title">먹는거 </span> <span
+													class="cssProgress-label-num">70%</span>
+												<div class="cssProgress">
+													<div class="progress">
+														<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
+														<div class="cssProgress-bar cssProgress-active"
+															data-percent="70" style="width: 55%;"></div>
+													</div>
+	
+												</div>
+												<span class="cssProgress-label-title">찡찡거력 </span> <span
+													class="cssProgress-label-num">99.9%</span>
+	
+												<div class="cssProgress">
+													<div class="progress">
+														<div
+															class="cssProgress-bar cssProgress-success cssProgress-active"
+															data-percent="99.9" style="width: 65%;"></div>
+													</div>
+												</div>
+	
+												<span class="cssProgress-label-title">호기심 </span> <span
+													class="cssProgress-label-num">100%</span>
+												<div class="cssProgress">
+													<div class="progress">
+														<div
+															class="cssProgress-bar cssProgress-warning cssProgress-active"
+															data-percent="100" style="width: 55%;"></div>
+													</div>
+												</div>
+	
+											</div>
+										</div>
+										<!-- @end #example-5 -->
+									</main>
+								</div>
+							</dl>
+	
 						</div>
-						<!--좌측메뉴-->
-
-						<!--우측메뉴-->
-						<dl class="portR">
-							<dt class="firstTit">퍼블리싱 100%</dt>
-							<dd class="firstTxt">
-								Main Page<br> 귀엽고 심플한 아이콘으로 사용자 이용에 편리를 줌<br> 사진과 여백을
-								통해 심플하고 간결한 구성을 이룸
-							</dd>
-							<dt>디자인컨셉</dt>
-							<dd>심플</dd>
-							<dt>주컬러</dt>
-							<dd>blue, white, black</dd>
-							<dt class="lastTit">타겟층</dt>
-							<dd class="lastTxt">
-								인테리어에 관심있는 전연령층
-								<!--한솔홈데코취업을 원하는 취업준비생-->
-							</dd>
-							<!--뷰버튼-->
-
-							<p class="viewBtnOn">
-								<a href="https://jeong1233.github.io/website/hansol/index.html"
-									target="_blank"> 버튼 </a>
-							</p>
-
-							<!--뷰버튼-->
-
-
-						</dl>
-						<!--우측메뉴-->
+						<!--inner-->
 					</div>
-					<!--inner-->
-				</div>
-				<!--portfolio04-->
+					<!--About-->
 			</div>
 			<!--section05-->
 
 			<!--section06-->
 			<div class="section" id="section6">
-				<!--portfolio04-->
-				<div class="portfolio05">
-
-					<!--inner-->
-					<div class="inner cf">
-						<!--좌측메뉴-->
-						<div class="portL">
-							<!--텍스트박스-->
-							<div class="txtBox">
-								<!--메뉴-->
-								<div class="menu menu01">
-									<img src="images/menu.png" alt="메뉴버튼">
+					<!--About-->
+					<div class="about" style="float: left">
+						<!--inner-->
+						<div class="inner cf">
+							<!--좌측메뉴-->
+							<div class="aboutL">
+								<!--텍스트박스-->
+								<div class="txtBox">
+									<!--메뉴-->
+									<div class="menu menu01">
+										<img src="images/menu.png" alt="메뉴버튼">
+									</div>
+									<!--메뉴-->
+									<!--페이지소개-->
+									<p class="pageName">김명환 ( Song. 요즘것들 )</p>
+									<!--페이지소개-->
+									<!--메인텍스트-->
+									<div class="aboutTxt">
+										<!--사진-->
+										<p class="aboutPhoto">사진</p>
+										<!--사진-->
+										<!--소개글-->
+										<p class="aboutIntro">
+											웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
+											데헷
+										</p>
+										<!--소개글-->
+										<!--이름서명-->
+										<div class="nameSign">
+											<!--이름-->
+											<span class="name"> 김 명환 </span>
+											<!--이름-->
+											<!--서명-->
+											<img src="images/sign.png" alt="서명" class="sign">
+											<!--서명-->
+											<!--이름서명-->
+										</div>
+									</div>
+									<!--메인텍스트-->
+	
 								</div>
-								<!--메뉴-->
-								<!--페이지소개-->
-								<p class="pageName">Portfolio</p>
-								<!--페이지소개-->
-								<!--로고-->
-								<p class="logo">
-									<img src="images/logo.png" alt="로고">
-								</p>
-								<!--로고-->
-								<!--모바일보러가기-->
-								<span class="mViewBtn"> <a
-									href="https://jeong1233.github.io/website/onepone/main.html"
-									target="_blank"> 버튼 </a>
-								</span>
-								<!--모바일보러가기-->
-								<!--메인텍스트-->
-								<div class="portTxt">
-									<p>#05</p>
-									<h2>
-										카페<br> 원플러스원
-									</h2>
-									<h3>모바일(UI/UX)</h3>
-								</div>
-								<!--메인텍스트-->
-								<!--홈페이지화면-->
-								<p class="mainPage">화면</p>
-								<!--홈페이지화면-->
+								<!--텍스트박스-->
 							</div>
-							<!--텍스트박스-->
+							<!--좌측메뉴-->
+	
+							<!--우측메뉴-->
+							<dl class="aboutR">
+								<img src="images/graph1.png" width="600px" height="450px">
+								<div class="processbar">
+									<main>
+										<div class="main-content">
+	
+											<div id="example-5" class="examples">
+												<h3>
+													<span>○</span> SKill
+												</h3>
+	
+												<span class="cssProgress-label-title">먹는거 </span> <span
+													class="cssProgress-label-num">70%</span>
+												<div class="cssProgress">
+													<div class="progress">
+														<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
+														<div class="cssProgress-bar cssProgress-active"
+															data-percent="70" style="width: 55%;"></div>
+													</div>
+	
+												</div>
+												<span class="cssProgress-label-title">찡찡거력 </span> <span
+													class="cssProgress-label-num">99.9%</span>
+	
+												<div class="cssProgress">
+													<div class="progress">
+														<div
+															class="cssProgress-bar cssProgress-success cssProgress-active"
+															data-percent="99.9" style="width: 65%;"></div>
+													</div>
+												</div>
+	
+												<span class="cssProgress-label-title">호기심 </span> <span
+													class="cssProgress-label-num">100%</span>
+												<div class="cssProgress">
+													<div class="progress">
+														<div
+															class="cssProgress-bar cssProgress-warning cssProgress-active"
+															data-percent="100" style="width: 55%;"></div>
+													</div>
+												</div>
+	
+											</div>
+										</div>
+										<!-- @end #example-5 -->
+									</main>
+								</div>
+							</dl>
+	
 						</div>
-						<!--좌측메뉴-->
-
-						<!--우측메뉴-->
-						<dl class="portR">
-							<dt class="firstTit">퍼블리싱 100%</dt>
-							<dd class="firstTxt">
-								Main Page<br> 모바일 환경에 맞게 큰 글씨체와 넓은 여백으로<br>가독성 높힘
-							</dd>
-							<dt>디자인컨셉</dt>
-							<dd>심플</dd>
-							<dt class="thirdTit">주컬러</dt>
-							<dd class="thirdTxt">
-								black, white<br>orange(포인트컬러)
-							</dd>
-							<dt class="lastTit">타겟층</dt>
-							<dd class="lastTxt">카페를 이용하는 전연령층</dd>
-							<!--뷰버튼-->
-
-							<p class="viewBtnOn">
-								<a href="https://jeong1233.github.io/website/onepone/main.html"
-									target="_blank"> 버튼 </a>
-							</p>
-
-							<!--뷰버튼-->
-
-
-						</dl>
-						<!--우측메뉴-->
+						<!--inner-->
 					</div>
-					<!--inner-->
-				</div>
-				<!--portfolio04-->
+					<!--About-->
 			</div>
 			<!--section06-->
 

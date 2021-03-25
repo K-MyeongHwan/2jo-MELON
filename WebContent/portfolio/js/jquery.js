@@ -33,64 +33,6 @@ $(document).ready(function () {
       width: "0",
     });
   });
-  //이전 버튼
-  $("#prevbtn").on({
-    click: function () {
-      console.log("THIS IS PREV");
-    },
-  });
-  //노래 재생, 정지 버튼
-  $("#pausebtn").on({
-    click: function () {
-      let check = $("#realaudio").attr("class"); //audio의 class가 playing인지 pause인지 구별하기위한 변수
-      console.log(check);
-      console.log("THIS IS PAUSEBTN");
-
-      let track;
-      $(" div[class*=active]").each(function () {
-        // div중 class에 "active"가 포함된
-        let id = $(this).attr("id");
-        if (id !== undefined) {
-          console.log(id);
-          if (id.includes("section")) {
-            track = id.substring(id.length - 1);
-            console.log(track);
-          }
-        }
-      });
-
-      console.log("track is not 0");
-      if (check === "playing") {
-        $("#realaudio").removeClass("playing").addClass("pause");
-        $("#realaudio").attr("src", "");
-      } else if (check === "pause") {
-        $("#realaudio").removeClass("pause").addClass("playing");
-        audioPlay(track, audio);
-      }
-    },
-  });
-
-  //다음 버튼
-  $("#nextbtn").on({
-    click: function () {
-      console.log("THIS IS NEXT");
-    },
-  });
-
-  /*each문 사용법
-			$(this).parents('.mlnb').each(function(){
-					$(this).css({
-						width:'50%',
-						height:'100%'
-					})
-				  })*/
-
-  /*$(this).parents('.mlnb').each(function(){
-					$(this).css({
-						width:'0'
-						//height:'0'
-					})
-				  })*/
 
   //menu//
 
@@ -126,11 +68,9 @@ $(document).ready(function () {
       selfiepath: "",
     },
   ];
-  //fullpage//  ////////////////////찐
-  $("#fullpage").fullpage({
-    sectionSelector: ".section",
-    scrolloverflow: true,
-    anchors: [
+
+  var index = 0;
+    var anchors = [
       "1stPage",
       "2ndPage",
       "3rdPage",
@@ -139,7 +79,66 @@ $(document).ready(function () {
       "6thPage",
       "7thPage",
       "8thPage",
-    ],
+    ];
+    
+    //이전 버튼
+    $('#prevbtn').on({
+      click : function(){
+        if(index-1===-1) {
+          index=0;
+        }
+        $('#prevbtn').attr("href","#"+ anchors[--index]);
+  
+      }
+    })
+
+    //노래 재생, 정지 버튼                                                                                  //from stay
+  $("#pausebtn").on({
+    click: function () {
+      let check = $("#realaudio").attr("class"); //audio의 class가 playing인지 pause인지 구별하기위한 변수
+      console.log(check);
+      console.log("THIS IS PAUSEBTN");
+
+      let track;
+      $(" div[class*=active]").each(function () {
+        // div중 class에 "active"가 포함된
+        let id = $(this).attr("id");
+        if (id !== undefined) {
+          console.log(id);
+          if (id.includes("section")) {
+            track = id.substring(id.length - 1);
+            console.log(track);
+          }
+        }
+      });
+
+      console.log("track is not 0");
+      if (check === "playing") {
+        $("#realaudio").removeClass("playing").addClass("pause");
+        $("#realaudio").attr("src", "");
+      } else if (check === "pause") {
+        $("#realaudio").removeClass("pause").addClass("playing");
+        audioPlay(track, audio);
+      }
+    },
+  });
+    
+    //다음버튼
+    $('#nextbtn').on({
+      click : function(){
+        if(index+1===8) {
+          index=-1;
+        }
+        $('#nextbtn').attr("href","#"+ anchors[++index]);
+
+      }
+    })
+
+  //fullpage//
+  $("#fullpage").fullpage({
+    sectionSelector: ".section",
+    scrolloverflow: true,
+    anchors: anchors,
     navigation: true,
     navigationTooltips: [
       "Intro",
@@ -153,7 +152,7 @@ $(document).ready(function () {
     ],
     slidesNavigation: true,
     menu: "#menu",
-    afterLoad: function (origin, destination, direction) {
+    afterLoad: function (origin, destination, direction) {                                  //from stay
       if (origin) {
         progressbar_start(origin.index, destination.index);
         audioPlay(destination.index, audio); // destination.index >> 현재 페이지 번호
@@ -176,14 +175,13 @@ $(document).ready(function () {
         }
       }
     });
-
     
   }
   //progressbar reset하고 start하기
 
   //인원에 맞는 노래 플레이//
   //페이지에 맞는 번호와 audio index를 매칭해서 노래 플레이
-  function audioPlay(index, audio) {
+  function audioPlay(index, audio) {                                                                //from stay
     if (index !== 0) {
       console.log("this is " + index);
       console.log(audio[index - 1]);
@@ -195,31 +193,8 @@ $(document).ready(function () {
       console.log(audio[index - 1]);
       $("#realaudio").attr("src", "");
     }
-  }
 
-  //fullpage//
-
-  //클립보드복사//
-  function copyToClipboard(val) {
-    var t = document.createElement("textarea");
-    document.body.appendChild(t);
-    t.value = val;
-    t.select();
-    document.execCommand("copy");
-    document.body.removeChild(t);
-  }
-  $(".cInfo01 span").click(function () {
-    copyToClipboard("thdek13@hanmail.net");
-    alert("클립보드로 복사되었습니다.");
-  });
-  $(".cInfo02 span").click(function () {
-    copyToClipboard("jeong1233");
-    alert("클립보드로 복사되었습니다.");
-  });
-  $(".cInfo03 span").click(function () {
-    copyToClipboard("http://jeong1233.dothome.co.kr/portfolio");
-    alert("클립보드로 복사되었습니다.");
-  });
+  };
   //클립보드복사//
 
   //경고창//
