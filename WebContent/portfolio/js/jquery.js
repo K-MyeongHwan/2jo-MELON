@@ -176,6 +176,8 @@ $(document).ready(function () {
         }
       }
     });
+
+    
   }
   //progressbar reset하고 start하기
 
