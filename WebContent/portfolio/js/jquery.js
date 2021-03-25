@@ -1,3 +1,19 @@
+function addJavascript(jsname) {// functions.js 불러오기
+
+	var th = document.getElementsByTagName('head')[0];
+
+	var s = document.createElement('script');
+
+	s.setAttribute('type','text/javascript');
+
+	s.setAttribute('src',jsname);
+
+	th.appendChild(s);
+
+}
+addJavascript('functions.js');
+
+
 $(document).ready(function () {
   //menu//
   //mlnb01//
@@ -26,34 +42,31 @@ $(document).ready(function () {
   //노래 재생, 정지 버튼
   $("#pausebtn").on({
     click: function () {
-      let audiopath = $("#realaudio").attr("src");
-      let check = $('#realaudio').attr("class");
-      console.log(check)
+      let check = $("#realaudio").attr("class"); //audio의 class가 playing인지 pause인지 구별하기위한 변수
+      console.log(check);
       console.log("THIS IS PAUSEBTN");
 
       let track;
-      $("div[class*=active]").each(function () {
+      $(" div[class*=active]").each(function () {
+        // div중 class에 "active"가 포함된
         let id = $(this).attr("id");
         if (id !== undefined) {
           console.log(id);
           if (id.includes("section")) {
             track = id.substring(id.length - 1);
-            console.log(track)
-            if(track!==0 ){
-              // audioPlay(track, audio);
-            }
+            console.log(track);
           }
         }
       });
-      if(check==="playing"){
-        $('#realaudio').removeClass("playing").addClass("pause");
-        $('#realaudio').attr("src","");
+
+      console.log("track is not 0");
+      if (check === "playing") {
+        $("#realaudio").removeClass("playing").addClass("pause");
+        $("#realaudio").attr("src", "");
+      } else if (check === "pause") {
+        $("#realaudio").removeClass("pause").addClass("playing");
+        audioPlay(track, audio);
       }
-      else if(check==="pause"){
-        $('#realaudio').removeClass("pause").addClass("playing");
-              audioPlay(track, audio);
-      }
-     
     },
   });
 
@@ -141,15 +154,30 @@ $(document).ready(function () {
     slidesNavigation: true,
     menu: "#menu",
     afterLoad: function (origin, destination, direction) {
-      
       if (origin) {
-        console.log(origin.index);
-      console.log(destination.index)
+        progressbar_start(origin.index, destination.index);
         audioPlay(destination.index, audio); // destination.index >> 현재 페이지 번호
       }
     },
   });
   //fullpage//
+  
+  //progressbar reset하고 start하기
+  function progressbar_start(){
+    let page;//페이지 번호
+    $(" div[class*=active]").each(function () {
+      // div중 class에 "active"가 포함된
+      let id = $(this).attr("id");
+      if (id !== undefined) {
+        console.log(id);
+        if (id.includes("section")) {
+          page = id.substring(id.length - 1);
+          console.log(page);
+        }
+      }
+    });
+  }
+  //progressbar reset하고 start하기
 
   //인원에 맞는 노래 플레이//
   //페이지에 맞는 번호와 audio index를 매칭해서 노래 플레이
@@ -168,7 +196,6 @@ $(document).ready(function () {
   }
 
   //fullpage//
-  
 
   //클립보드복사//
   function copyToClipboard(val) {
