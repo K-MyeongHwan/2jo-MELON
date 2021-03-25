@@ -1,31 +1,27 @@
 @charset "utf-8";
 
-#header_main{
-	width:1000px;
-	margin: 100px auto;
-	display:flex;
-}
-#titlebox{
-	width:100px;
-	height:100%;
-}
-#mainlist{
-	left:200px;
-	width:350px;
-	height:450px;
-	margin-left:auto;
-	align-items: center;
-}
-
-#mainlist li{
-	border: 1px solid gray;
-	background-color:white;
-	height:60px;
-	border-radius:3px;
-	color:gray;
-}
-
 /*공통*/
+
+#maintxtBox{
+	width:1000px;
+	height:500px;
+	margin:auto;
+	background-color:white;
+	display:flex;
+	align-items:center;
+}
+
+#titlebox{
+	width:50%;
+	text-align: center;
+}
+#titlebox p {
+	font-size:45px;
+	color:rgb(82, 197, 82);
+	font-family: 'Oxygen', sans-serif;
+	margin:auto;
+}
+
 .txtBox{
 	background: #fff;
 	width: 600px;
@@ -34,63 +30,39 @@
 	padding: 120px 0;
 }
 
-.intro .txtBox{
-	padding: 300px 0;
+#mainlist{
+	left:200px;
+	width:350px;
+	height:450px;
+	margin:auto;
+	align-items: center;
+	padding-top:10px;
 }
+
+#mainlist div{
+	border: 1px solid rgb(179, 176, 176);
+	background-color:white;
+	height:60px;
+	border-radius:3px;
+	color:gray;
+}
+
 .about .txtBox{
 	padding: 90px 0;
 }
 
+.menu{
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
 
 /*menulnb*/
 .section{
 		position: relative;
 }
-.mlnb{
-	background: rgba(0,0,0,1);
-	width: 0;
-	height: 0;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 1;
-	overflow: hidden;
-	transition: width 1s;
-	padding: 80px 0;
-}
-.mlnb li{
-	text-align:center;
-	line-height: 85px;
-	color: #fff;
-	font-size: 40px;
-	font-weight: 500;
-}
-.mlnb li:first-child{
-	font-size: 40px;
-	text-align: right;
-	padding-right: 100px;
-}
-.mlnb li i{
-	cursor: pointer;
-}
-.mlnb li a:after{
-	content: "";
-	max-width: 0;
-	height: 8px;
-	display: block;
-	background: rgba(255,255,32,0.6);
-	transition: max-width 0.5s;
-	margin:0 auto;
-}
-.mlnb li:first-child:after{
-	display: none;
-}
-.mlnb li:hover a:after{
-	max-width: 215px;
-}
-.mlnb li a{
-	color: #fff;
-}
+
 
 .pageName{
 	position: absolute;
@@ -162,7 +134,7 @@ pageName span{
 
 /***Intro***/
 #section0{
-	background: url(../../images/introBg.png) no-repeat center center;
+	background-color:white;
 	background-size: cover;
 	width: 100%;
 }
@@ -171,20 +143,19 @@ pageName span{
 #section1{
 	background: #f9ecd8;
 	width: 100%;
+	float : left;
 }
 
 /**좌측메뉴**/
 .aboutL{
-
-	display:inline-block;
-	border:1px solid black;
+	float: left;
 }
 .aboutTxt{
 	text-align: center;
 }
 
 .aboutPhoto{
-	background: url(../../images/profilePhoto.png) no-repeat center center;
+	background: url(../../images/KimMyeongHwan.jpg) no-repeat center center;
 	background-size: cover;
 	width: 334px;
 	height: 334px;
@@ -224,9 +195,11 @@ pageName span{
 	float: right;
 	margin: 0 auto;
 	line-height: 35px;
-	padding: 78px 0;
 }
-
+.processbar{
+	width:500px;
+	height:300px;
+}
 .aboutR dt{
 	font-size: 25px;
 	font-family: 'tmonmonsori', sans-serif;
@@ -284,6 +257,24 @@ pageName span{
 	margin: 0 auto;
 	text-indent: -9999px;
 }
+/*네비게이션 바 */
+.nav {
+	width:10%;
+	float : right;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    margin-top : 80px;
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+}
+.navbar ul {
+	list-style-type:none;
+	margin-right: 50px;
+}
+
 /**모바일 뷰버튼**/
 .portL .txtBox{
 	position: relative;
