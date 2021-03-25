@@ -26,12 +26,9 @@ $(document).ready(function () {
   //노래 재생, 정지 버튼
   $("#pausebtn").on({
     click: function () {
-      // $('#realaudio')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
-      // document.getElementById('#realaudio').stopVideo();
-      // $('#realaudio').stopVideo();
-      // $("#realaudio").play;
-      // document.getElementById('#realaudio').getAttribute("src");
       let audiopath = $("#realaudio").attr("src");
+      let check = $('#realaudio').attr("class");
+      console.log(check)
       console.log("THIS IS PAUSEBTN");
 
       let track;
@@ -43,16 +40,20 @@ $(document).ready(function () {
             track = id.substring(id.length - 1);
             console.log(track)
             if(track!==0 ){
-              audioPlay(track, audio);
+              // audioPlay(track, audio);
             }
           }
         }
       });
-      // let id = $('#wrap :contains("active")')
-      // console.log(id)
-      //  $('#wrap div').each(function(index){
-      //    console.log($(this).attr('id'))
-      //  })
+      if(check==="playing"){
+        $('#realaudio').removeClass("playing").addClass("pause");
+        $('#realaudio').attr("src","");
+      }
+      else if(check==="pause"){
+        $('#realaudio').removeClass("pause").addClass("playing");
+              audioPlay(track, audio);
+      }
+     
     },
   });
 
@@ -154,18 +155,15 @@ $(document).ready(function () {
   //페이지에 맞는 번호와 audio index를 매칭해서 노래 플레이
   function audioPlay(index, audio) {
     if (index !== 0) {
-      console.log(audio);
       console.log("this is " + index);
       console.log(audio[index - 1]);
       $("#realaudio").attr("src", audio[index - 1].audiopath);
       $("#realaudio").play;
       $("#realaudio").attr("class", "playing");
     } else {
-      console.log(audio);
       console.log("this is " + index);
       console.log(audio[index - 1]);
       $("#realaudio").attr("src", "");
-      $("#realaudio").removeClass("active").addClass("pause");
     }
   }
 
