@@ -576,7 +576,7 @@
             else if(isResponsive){
                 setAutoScrolling(originals.autoScrolling, 'internal');
                 setFitToSection(originals.autoScrolling, 'internal');
-                hide($(SECTION_NAV_SEL));
+                show($(SECTION_NAV_SEL));
                 removeClass($body, RESPONSIVE);
                 if(isFunction( options.afterResponsive )){
                     options.afterResponsive.call( container, active);
@@ -724,6 +724,25 @@
             }
         }
 
+        function delegatedEvents(e){
+            var target = e.target;
+
+            if(target && closest(target, SECTION_NAV_SEL + ' a')){
+                sectionBulletHandler.call(target, e);
+            }
+            else if(matches(target, SECTION_NAV_TOOLTIP_SEL)){
+                tooltipTextHandler.call(target);
+            }
+            else if(matches(target, SLIDES_ARROW_SEL)){
+                slideArrowHandler.call(target, e);
+            }
+            else if(matches(target, SLIDES_NAV_LINK_SEL) || closest(target, SLIDES_NAV_LINK_SEL) != null){
+                slideBulletHandler.call(target, e);
+            }
+            else if(closest(target, options.menu + ' [data-menuanchor]')){
+                menuItemsHandler.call(target, e);
+            }
+        }
 
         function forMouseLeaveOrTouch(eventName, allowScrolling){
             //a way to pass arguments to the onMouseEnterOrLeave function

@@ -1,3 +1,4 @@
+
 function addJavascript(jsname) {// functions.js 불러오기
 
 	var th = document.getElementsByTagName('head')[0];
@@ -41,6 +42,8 @@ $(document).ready(function () {
       albumpath: "",
       audiopath: "music/braveGirls.mp3",
       selfiepath: "",
+      mbti:"",
+      processbar:""
     },
     {
       albumpath: "",
@@ -99,18 +102,8 @@ $(document).ready(function () {
       console.log(check);
       console.log("THIS IS PAUSEBTN");
 
-      let track;
-      $(" div[class*=active]").each(function () {
-        // div중 class에 "active"가 포함된
-        let id = $(this).attr("id");
-        if (id !== undefined) {
-          console.log(id);
-          if (id.includes("section")) {
-            track = id.substring(id.length - 1);
-            console.log(track);
-          }
-        }
-      });
+      let track = findActive();
+      console.log("track : "+track)
 
       console.log("track is not 0");
       if (check === "playing") {
@@ -163,18 +156,9 @@ $(document).ready(function () {
   
   //progressbar reset하고 start하기
   function progressbar_start(){
-    let page;//페이지 번호
-    $(" div[class*=active]").each(function () {
-      // div중 class에 "active"가 포함된
-      let id = $(this).attr("id");
-      if (id !== undefined) {
-        console.log(id);
-        if (id.includes("section")) {
-          page = id.substring(id.length - 1);
-          console.log(page);
-        }
-      }
-    });
+    let page = findActive();//페이지 번호
+    
+ 
     
   }
   //progressbar reset하고 start하기
@@ -201,3 +185,21 @@ $(document).ready(function () {
   //이메일주소 카피,되도록이면 크롬과 엣지 써달라고 alert//
   //경고창//
 }); //전체 닫기
+
+function findActive(){ /////////////////////////////현재 class에 active인 section 찾아 반환해준다.
+
+  let page;
+   $(" div[class*=active]").each(function () {
+    // div중 class에 "active"가 포함된
+    let id = $(this).attr("id");
+    if (id !== undefined) {
+      console.log("id : " +id);
+      if (id.includes("section")) {
+        page = id.substring(id.length - 1);
+      }
+    }
+  });
+  console.log("page : " + page);
+  return page;
+
+};

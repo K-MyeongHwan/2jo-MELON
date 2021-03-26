@@ -1,65 +1,136 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<title>TEAM TWO</title>
-<link rel="stylesheet" type="text/css" href="fonts/notofonts.css">
-<link rel="stylesheet" type="text/css" href="fonts/nanumsquarefonts.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-<link rel="stylesheet" type="text/css" href="fonts/tmonmonsori.css">
-<link rel="stylesheet" type="text/css" href="css/mainCss/default.css">
-<link rel="stylesheet" type="text/css" href="css/mainCss/include.css">
-<link rel="stylesheet" type="text/css" href="css/mainCss/main.css">
-<link rel="stylesheet" type="text/css" href="css/mainCss/fullpage.css">
-<link rel="stylesheet" type="text/css" href="css/mainCss/media.css">
-<link rel="stylesheet" type="text/css"
-	href="css/mainCss/fullpage.min.css">
-<link rel="stylesheet" type="text/css" href="css/mainCss/slick.css">
-<link rel="stylesheet" href="css/mainCss/style.css">
-<link rel="stylesheet" href="css/mainCss/cssprogress.css">
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>TEAM TWO</title>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-	type="text/javascript"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"
-	type="text/javascript"></script>
+	<!-- 폰트 -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
 
-<script src="js/scrolloverflow.js" type="text/javascript"></script>
-<script src="js/scrolloverflow.min.js" type="text/javascript"></script>
-<script src="js/easings.js" type="text/javascript"></script>
-<script src="js/easings.min.js" type="text/javascript"></script>
-<script src="js/fullpage.js" type="text/javascript"></script>
-<script src="js/jquery.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="fonts/notofonts.css">
+	<link rel="stylesheet" type="text/css" href="fonts/nanumsquarefonts.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="fonts/tmonmonsori.css">
+	<link rel="stylesheet" type="text/css" href="css/mainCss/default.css">
+	<link rel="stylesheet" type="text/css" href="css/mainCss/include.css">
+	<link rel="stylesheet" type="text/css" href="css/mainCss/main.css">
+	<link rel="stylesheet" type="text/css" href="css/mainCss/fullpage.css">
+	<link rel="stylesheet" type="text/css" href="css/mainCss/media.css">
+	<link rel="stylesheet" type="text/css" href="css/mainCss/fullpage.min.css">
+	<link rel="stylesheet" type="text/css" href="css/mainCss/slick.css">
+	<link rel="stylesheet" href="css/mainCss/style.css">
+	<link rel="stylesheet" href="css/mainCss/cssprogress.css">
+	<link rel="stylesheet" type="text/css" href="css/mainCss/draggable.css">
+
+	<!--드래거블-->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" type="text/javascript"></script>
+
+
+	<script src="js/scrolloverflow.js" type="text/javascript"></script>
+	<script src="js/scrolloverflow.min.js" type="text/javascript"></script>
+	<script src="js/easings.js" type="text/javascript"></script>
+	<script src="js/easings.min.js" type="text/javascript"></script>
+	<script src="js/fullpage.js" type="text/javascript"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+
+
+		$(document).ready(function () {
+
+
+			setalbum();
+			loopmenu();
+/*
+			document.getElementById("test").addEventListener("click", function () {
+				console.log(1234);
+				initialize();
+				changePercent();
+			});
+*/
+		});
+
+
+		// 루프와 드래거블이 동시에 안된다
+		$("#box").on(mouseover, function (event) {
+			drag();
+		});
+
+
+		//계속 옆으로 도는 메뉴 만들기
+		function loopmenu() {
+			$("#box > ul > li").clone().appendTo("#box > ul");
+
+		}
+
+		// 이미지 배열로 넣기
+		function setalbum() {
+
+			let li = $("#box > ul >li");
+			let album = $("#box > ul >li > a > div");
+
+			let imgs = ["images/1.png", "images/images/img.jpg", "images/images/img.jpg",
+				"images/4.png", "images/images/img.jpg", "images/images/img.jpg"]
+
+
+			for (let index = 0; index < li.length; index++) {
+
+				album[index].style.backgroundImage = "url(" + imgs[index] + ")";
+				album[index].style.backgroundSize = 180 + "px";
+			}
+		}
+		/*
+		//드래거블
+		function drag(){
+			$(function(){
+				$("#box").draggable({ axis: "x" });
+			});
+			
+		}
+	*/
+
+		//프로세스바
+		function initialize() {
+			$("#test").gaugeMeter();
+
+		}
+
+
+
+		function changePercent() {
+			$("#test").data("percent", 70);
+			$("#test").empty();
+			$("#test").gaugeMeter();
+		}
+
+
+	</script>
+
 </head>
 
 <body>
 	<!--전체시작-->
 	<div class="nav">
-	<div class="navbar">
-		<ul style="list-style-type: none">
-<<<<<<< HEAD
-			<li><img id="prevbtn" src="icon/prev.png" width="50px" height="50px"
-				style="margin-bottom: 350px"></li>
-			<li><img id="pausebtn" src="icon/puase.png" width="40px" height="40px"
-				style="margin-bottom: 300px"></li>
-			<li><img id="nextbtn" src="icon/next.png" width="50px" height="50px"></li>
-=======
-			<li><a href="#1stPage" id="prevbtn"><img src="icon/prev.png" width="50px" height="50px"
-				 ></a></li>
-			<li><img src="icon/puase.png" width="40px" height="40px"
-				id="prevbtn" style="margin-top: 350px;margin-bottom: 300px"></li>
-			<li><a href="#2ndPage" id="nextbtn"><img src="icon/next.png" width="50px" height="50px"
-				></a></li>
->>>>>>> 9c27de315dfcd9979cb0852dc1fdf3495d90207a
-		</ul>
-	</div>
+		<div class="navbar">
+			<ul style="list-style-type: none">
+				<li><a href="#1stPage" id="prevbtn"><img src="icon/prev.png" width="50px" height="50px"></a></li>
+				<li><img src="icon/puase.png" width="40px" height="40px" id="pausebtn"
+						style="margin-top: 350px;margin-bottom: 300px"></li>
+				<li><a href="#2ndPage" id="nextbtn"><img src="icon/next.png" width="50px" height="50px"></a></li>
+			</ul>
+		</div>
 	</div>
 	<div id="wrap">
 		<!-- Audio Player-->
-		<iframe src="" id="realaudio" style="display: none"></iframe>		
+		<iframe src="" id="realaudio" style="display: none"></iframe>
 		<!-- Audio Player-->
 		<!--fullpage-->
 		<div id="fullpage">
@@ -67,35 +138,109 @@
 			<div class="section" id="section0">
 				<!--Intro-->
 				<div class="intro">
-					<!--inner-->
-					<div class="inner">
-						<!--텍스트박스-->
-						<div class="txtBox">
-							<!--메뉴-->
-							<div class="menu menu01">
-								<img src="images/menu.png" alt="메뉴버튼">
-							</div>
-							<!--메뉴-->
-							<!--페이지소개-->
-							<p class="pageName">
-								<span>BootStrap</span>
-							</p>
-							<!--페이지소개-->
-							<!--메인텍스트-->
-							<dl class="introTxt">
-								<dt>
-									BIT<br> CAMP<br> BOOTSTRAP
-								</dt>
-								<dd>
-									안녕하세요. <span>2조</span><br> 김명환 김영훈 김현진<br> 이가희 이상엽
-									서태희
-								</dd>
-							</dl>
-							<!--메인텍스트-->
+					<!--텍스트박스-->
+					<div id="maintxtBox">
+
+						<div id="titlebox">
+							<p>BIT Pl2y</p>
+							<!--<img src="images/bitlogo.png"> -->
 						</div>
-						<!--텍스트박스-->
+						<!--mainlist-->
+						<!-- 이 안에 멤버들 목록을 넣어서 각 페이지로 링크를 건다-->
+						<div id="mainlist">
+							<div class="innerAccordion" id="listtop">
+								<a href="#2ndPage">
+									<div class="memberimg"><div id="circle1" class="circle"> </div><p>이가희</p></div>									
+								</a>
+							</div>
+							<div class="innerAccordion">
+								<a href="#3rdPage">
+									<div class="memberimg"><div id="circle2" class="circle"> </div><p>김현진</p></div>
+									</a>
+								
+							</div>
+							<div class="innerAccordion">
+								<a href="#4thPage">
+									<div class="memberimg"><div id="circle3" class="circle"> </div><p>김영훈</p></div>
+									
+								</a>
+							</div>
+							<div class="innerAccordion">
+								<a href="#5thPage">
+									<div class="memberimg"><div id="circle4" class="circle"> </div><p>서태희</p></div>
+									
+								</a>
+							</div>
+							<div class="innerAccordion">
+								<a href="#6thPage">
+									<div class="memberimg"><div id="circle5" class="circle"> </div><p>이상엽</p></div>
+									
+								</a>
+							</div>
+							<div class="innerAccordion">
+								<a href="#7thPage">
+									<div class="memberimg"><div id="circle6" class="circle"> </div><p>김명환</p></div>
+								</a>
+							</div>
+						</div>
+
 					</div>
-					<!--inner-->
+					<!--텍스트박스-->
+
+					<!--DraggDiv-->
+					<div id="dragDiv">
+						<!-- space btween을 주기 위해 하나의 박스로 묶는다-->
+						<div id="box">
+							<!-- 무한루프 돌 메뉴 -->
+							<ul>
+								<li>
+									<a href="#2ndPage">
+										<div id=" dgd1" class="draggingTarget">
+											1
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#3rdPage">
+										<div id=" dgd2" class="draggingTarget">
+											2
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#4thPage">
+										<div id="dgd3" class="draggingTarget">
+											3
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#5thPage">
+										<div id="dgd4" class="draggingTarget">
+											4
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#6thPage">
+										<div id="dgd5" class="draggingTarget">
+											5
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div id="dgd6" class="draggingTarget">
+											6
+										</div>
+									</a>
+								</li>
+
+							</ul>
+						</div>
+						<!--box끝-->
+					</div>
+					<!--DraggDiv 끝-->
 				</div>
 				<!--Intro-->
 			</div>
@@ -165,8 +310,8 @@
 											<div class="cssProgress">
 												<div class="progress">
 													<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
-													<div class="cssProgress-bar cssProgress-active"
-														data-percent="70" style="width: 55%;"></div>
+													<div class="cssProgress-bar cssProgress-active" id="test"
+														data-percent=70; style="width: 55%;"></div>
 												</div>
 
 											</div>
@@ -175,8 +320,7 @@
 
 											<div class="cssProgress">
 												<div class="progress">
-													<div
-														class="cssProgress-bar cssProgress-success cssProgress-active"
+													<div class="cssProgress-bar cssProgress-success cssProgress-active"
 														data-percent="99.9" style="width: 65%;"></div>
 												</div>
 											</div>
@@ -185,8 +329,7 @@
 												class="cssProgress-label-num">100%</span>
 											<div class="cssProgress">
 												<div class="progress">
-													<div
-														class="cssProgress-bar cssProgress-warning cssProgress-active"
+													<div class="cssProgress-bar cssProgress-warning cssProgress-active"
 														data-percent="100" style="width: 55%;"></div>
 												</div>
 											</div>
@@ -210,7 +353,7 @@
 
 			<!--section02-->
 			<div class="section" id="section2">
-			
+
 				<!--About-->
 				<div class="about" style="float: left">
 					<!--inner-->
@@ -273,8 +416,8 @@
 											<div class="cssProgress">
 												<div class="progress">
 													<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
-													<div class="cssProgress-bar cssProgress-active"
-														data-percent="70" style="width: 55%;"></div>
+													<div class="cssProgress-bar cssProgress-active" data-percent="70"
+														style="width: 55%;"></div>
 												</div>
 
 											</div>
@@ -283,8 +426,7 @@
 
 											<div class="cssProgress">
 												<div class="progress">
-													<div
-														class="cssProgress-bar cssProgress-success cssProgress-active"
+													<div class="cssProgress-bar cssProgress-success cssProgress-active"
 														data-percent="99.9" style="width: 65%;"></div>
 												</div>
 											</div>
@@ -293,8 +435,7 @@
 												class="cssProgress-label-num">100%</span>
 											<div class="cssProgress">
 												<div class="progress">
-													<div
-														class="cssProgress-bar cssProgress-warning cssProgress-active"
+													<div class="cssProgress-bar cssProgress-warning cssProgress-active"
 														data-percent="100" style="width: 55%;"></div>
 												</div>
 											</div>
@@ -317,7 +458,7 @@
 
 			<!--section03-->
 			<div class="section" id="section3">
-			
+
 				<!--About-->
 				<div class="about" style="float: left">
 					<!--inner-->
@@ -380,8 +521,8 @@
 											<div class="cssProgress">
 												<div class="progress">
 													<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
-													<div class="cssProgress-bar cssProgress-active"
-														data-percent="70" style="width: 55%;"></div>
+													<div class="cssProgress-bar cssProgress-active" data-percent="70"
+														style="width: 55%;"></div>
 												</div>
 
 											</div>
@@ -390,8 +531,7 @@
 
 											<div class="cssProgress">
 												<div class="progress">
-													<div
-														class="cssProgress-bar cssProgress-success cssProgress-active"
+													<div class="cssProgress-bar cssProgress-success cssProgress-active"
 														data-percent="99.9" style="width: 65%;"></div>
 												</div>
 											</div>
@@ -400,8 +540,7 @@
 												class="cssProgress-label-num">100%</span>
 											<div class="cssProgress">
 												<div class="progress">
-													<div
-														class="cssProgress-bar cssProgress-warning cssProgress-active"
+													<div class="cssProgress-bar cssProgress-warning cssProgress-active"
 														data-percent="100" style="width: 55%;"></div>
 												</div>
 											</div>
@@ -424,313 +563,307 @@
 
 			<!--section04-->
 			<div class="section" id="section4">
-					<!--About-->
-					<div class="about" style="float: left">
-						<!--inner-->
-						<div class="inner cf">
-							<!--좌측메뉴-->
-							<div class="aboutL">
-								<!--텍스트박스-->
-								<div class="txtBox">
-									<!--메뉴-->
-									<div class="menu menu01">
-										<img src="images/menu.png" alt="메뉴버튼">
-									</div>
-									<!--메뉴-->
-									<!--페이지소개-->
-									<p class="pageName">김명환 ( Song. 요즘것들 )</p>
-									<!--페이지소개-->
-									<!--메인텍스트-->
-									<div class="aboutTxt">
-										<!--사진-->
-										<p class="aboutPhoto">사진</p>
-										<!--사진-->
-										<!--소개글-->
-										<p class="aboutIntro">
-											웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
-											데헷
-										</p>
-										<!--소개글-->
+				<!--About-->
+				<div class="about" style="float: left">
+					<!--inner-->
+					<div class="inner cf">
+						<!--좌측메뉴-->
+						<div class="aboutL">
+							<!--텍스트박스-->
+							<div class="txtBox">
+								<!--메뉴-->
+								<div class="menu menu01">
+									<img src="images/menu.png" alt="메뉴버튼">
+								</div>
+								<!--메뉴-->
+								<!--페이지소개-->
+								<p class="pageName">김명환 ( Song. 요즘것들 )</p>
+								<!--페이지소개-->
+								<!--메인텍스트-->
+								<div class="aboutTxt">
+									<!--사진-->
+									<p class="aboutPhoto">사진</p>
+									<!--사진-->
+									<!--소개글-->
+									<p class="aboutIntro">
+										웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
+										데헷
+									</p>
+									<!--소개글-->
+									<!--이름서명-->
+									<div class="nameSign">
+										<!--이름-->
+										<span class="name"> 김 명환 </span>
+										<!--이름-->
+										<!--서명-->
+										<img src="images/sign.png" alt="서명" class="sign">
+										<!--서명-->
 										<!--이름서명-->
-										<div class="nameSign">
-											<!--이름-->
-											<span class="name"> 김 명환 </span>
-											<!--이름-->
-											<!--서명-->
-											<img src="images/sign.png" alt="서명" class="sign">
-											<!--서명-->
-											<!--이름서명-->
+									</div>
+								</div>
+								<!--메인텍스트-->
+
+							</div>
+							<!--텍스트박스-->
+						</div>
+						<!--좌측메뉴-->
+
+						<!--우측메뉴-->
+						<dl class="aboutR">
+							<img src="images/graph1.png" width="600px" height="450px">
+							<div class="processbar">
+								<main>
+									<div class="main-content">
+
+										<div id="example-5" class="examples">
+											<h3>
+												<span>○</span> SKill
+											</h3>
+
+											<span class="cssProgress-label-title">먹는거 </span> <span
+												class="cssProgress-label-num">70%</span>
+											<div class="cssProgress">
+												<div class="progress">
+													<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
+													<div class="cssProgress-bar cssProgress-active" data-percent="70"
+														style="width: 55%;"></div>
+												</div>
+
+											</div>
+											<span class="cssProgress-label-title">찡찡거력 </span> <span
+												class="cssProgress-label-num">99.9%</span>
+
+											<div class="cssProgress">
+												<div class="progress">
+													<div class="cssProgress-bar cssProgress-success cssProgress-active"
+														data-percent="99.9" style="width: 65%;"></div>
+												</div>
+											</div>
+
+											<span class="cssProgress-label-title">호기심 </span> <span
+												class="cssProgress-label-num">100%</span>
+											<div class="cssProgress">
+												<div class="progress">
+													<div class="cssProgress-bar cssProgress-warning cssProgress-active"
+														data-percent="100" style="width: 55%;"></div>
+												</div>
+											</div>
+
 										</div>
 									</div>
-									<!--메인텍스트-->
-	
-								</div>
-								<!--텍스트박스-->
+									<!-- @end #example-5 -->
+								</main>
 							</div>
-							<!--좌측메뉴-->
-	
-							<!--우측메뉴-->
-							<dl class="aboutR">
-								<img src="images/graph1.png" width="600px" height="450px">
-								<div class="processbar">
-									<main>
-										<div class="main-content">
-	
-											<div id="example-5" class="examples">
-												<h3>
-													<span>○</span> SKill
-												</h3>
-	
-												<span class="cssProgress-label-title">먹는거 </span> <span
-													class="cssProgress-label-num">70%</span>
-												<div class="cssProgress">
-													<div class="progress">
-														<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
-														<div class="cssProgress-bar cssProgress-active"
-															data-percent="70" style="width: 55%;"></div>
-													</div>
-	
-												</div>
-												<span class="cssProgress-label-title">찡찡거력 </span> <span
-													class="cssProgress-label-num">99.9%</span>
-	
-												<div class="cssProgress">
-													<div class="progress">
-														<div
-															class="cssProgress-bar cssProgress-success cssProgress-active"
-															data-percent="99.9" style="width: 65%;"></div>
-													</div>
-												</div>
-	
-												<span class="cssProgress-label-title">호기심 </span> <span
-													class="cssProgress-label-num">100%</span>
-												<div class="cssProgress">
-													<div class="progress">
-														<div
-															class="cssProgress-bar cssProgress-warning cssProgress-active"
-															data-percent="100" style="width: 55%;"></div>
-													</div>
-												</div>
-	
-											</div>
-										</div>
-										<!-- @end #example-5 -->
-									</main>
-								</div>
-							</dl>
-	
-						</div>
-						<!--inner-->
+						</dl>
+
 					</div>
-					<!--About-->
+					<!--inner-->
+				</div>
+				<!--About-->
 			</div>
 			<!--section04-->
 
 			<!--section05-->
 			<div class="section" id="section5">
-					<!--About-->
-					<div class="about" style="float: left">
-						<!--inner-->
-						<div class="inner cf">
-							<!--좌측메뉴-->
-							<div class="aboutL">
-								<!--텍스트박스-->
-								<div class="txtBox">
-									<!--메뉴-->
-									<div class="menu menu01">
-										<img src="images/menu.png" alt="메뉴버튼">
-									</div>
-									<!--메뉴-->
-									<!--페이지소개-->
-									<p class="pageName">김명환 ( Song. 요즘것들 )</p>
-									<!--페이지소개-->
-									<!--메인텍스트-->
-									<div class="aboutTxt">
-										<!--사진-->
-										<p class="aboutPhoto">사진</p>
-										<!--사진-->
-										<!--소개글-->
-										<p class="aboutIntro">
-											웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
-											데헷
-										</p>
-										<!--소개글-->
+				<!--About-->
+				<div class="about" style="float: left">
+					<!--inner-->
+					<div class="inner cf">
+						<!--좌측메뉴-->
+						<div class="aboutL">
+							<!--텍스트박스-->
+							<div class="txtBox">
+								<!--메뉴-->
+								<div class="menu menu01">
+									<img src="images/menu.png" alt="메뉴버튼">
+								</div>
+								<!--메뉴-->
+								<!--페이지소개-->
+								<p class="pageName">김명환 ( Song. 요즘것들 )</p>
+								<!--페이지소개-->
+								<!--메인텍스트-->
+								<div class="aboutTxt">
+									<!--사진-->
+									<p class="aboutPhoto">사진</p>
+									<!--사진-->
+									<!--소개글-->
+									<p class="aboutIntro">
+										웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
+										데헷
+									</p>
+									<!--소개글-->
+									<!--이름서명-->
+									<div class="nameSign">
+										<!--이름-->
+										<span class="name"> 김 명환 </span>
+										<!--이름-->
+										<!--서명-->
+										<img src="images/sign.png" alt="서명" class="sign">
+										<!--서명-->
 										<!--이름서명-->
-										<div class="nameSign">
-											<!--이름-->
-											<span class="name"> 김 명환 </span>
-											<!--이름-->
-											<!--서명-->
-											<img src="images/sign.png" alt="서명" class="sign">
-											<!--서명-->
-											<!--이름서명-->
+									</div>
+								</div>
+								<!--메인텍스트-->
+
+							</div>
+							<!--텍스트박스-->
+						</div>
+						<!--좌측메뉴-->
+
+						<!--우측메뉴-->
+						<dl class="aboutR">
+							<img src="images/graph1.png" width="600px" height="450px">
+							<div class="processbar">
+								<main>
+									<div class="main-content">
+
+										<div id="example-5" class="examples">
+											<h3>
+												<span>○</span> SKill
+											</h3>
+
+											<span class="cssProgress-label-title">먹는거 </span> <span
+												class="cssProgress-label-num">70%</span>
+											<div class="cssProgress">
+												<div class="progress">
+													<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
+													<div class="cssProgress-bar cssProgress-active" data-percent="70"
+														style="width: 55%;"></div>
+												</div>
+
+											</div>
+											<span class="cssProgress-label-title">찡찡거력 </span> <span
+												class="cssProgress-label-num">99.9%</span>
+
+											<div class="cssProgress">
+												<div class="progress">
+													<div class="cssProgress-bar cssProgress-success cssProgress-active"
+														data-percent="99.9" style="width: 65%;"></div>
+												</div>
+											</div>
+
+											<span class="cssProgress-label-title">호기심 </span> <span
+												class="cssProgress-label-num">100%</span>
+											<div class="cssProgress">
+												<div class="progress">
+													<div class="cssProgress-bar cssProgress-warning cssProgress-active"
+														data-percent="100" style="width: 55%;"></div>
+												</div>
+											</div>
+
 										</div>
 									</div>
-									<!--메인텍스트-->
-	
-								</div>
-								<!--텍스트박스-->
+									<!-- @end #example-5 -->
+								</main>
 							</div>
-							<!--좌측메뉴-->
-	
-							<!--우측메뉴-->
-							<dl class="aboutR">
-								<img src="images/graph1.png" width="600px" height="450px">
-								<div class="processbar">
-									<main>
-										<div class="main-content">
-	
-											<div id="example-5" class="examples">
-												<h3>
-													<span>○</span> SKill
-												</h3>
-	
-												<span class="cssProgress-label-title">먹는거 </span> <span
-													class="cssProgress-label-num">70%</span>
-												<div class="cssProgress">
-													<div class="progress">
-														<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
-														<div class="cssProgress-bar cssProgress-active"
-															data-percent="70" style="width: 55%;"></div>
-													</div>
-	
-												</div>
-												<span class="cssProgress-label-title">찡찡거력 </span> <span
-													class="cssProgress-label-num">99.9%</span>
-	
-												<div class="cssProgress">
-													<div class="progress">
-														<div
-															class="cssProgress-bar cssProgress-success cssProgress-active"
-															data-percent="99.9" style="width: 65%;"></div>
-													</div>
-												</div>
-	
-												<span class="cssProgress-label-title">호기심 </span> <span
-													class="cssProgress-label-num">100%</span>
-												<div class="cssProgress">
-													<div class="progress">
-														<div
-															class="cssProgress-bar cssProgress-warning cssProgress-active"
-															data-percent="100" style="width: 55%;"></div>
-													</div>
-												</div>
-	
-											</div>
-										</div>
-										<!-- @end #example-5 -->
-									</main>
-								</div>
-							</dl>
-	
-						</div>
-						<!--inner-->
+						</dl>
+
 					</div>
-					<!--About-->
+					<!--inner-->
+				</div>
+				<!--About-->
 			</div>
 			<!--section05-->
 
 			<!--section06-->
 			<div class="section" id="section6">
-					<!--About-->
-					<div class="about" style="float: left">
-						<!--inner-->
-						<div class="inner cf">
-							<!--좌측메뉴-->
-							<div class="aboutL">
-								<!--텍스트박스-->
-								<div class="txtBox">
-									<!--메뉴-->
-									<div class="menu menu01">
-										<img src="images/menu.png" alt="메뉴버튼">
-									</div>
-									<!--메뉴-->
-									<!--페이지소개-->
-									<p class="pageName">김명환 ( Song. 요즘것들 )</p>
-									<!--페이지소개-->
-									<!--메인텍스트-->
-									<div class="aboutTxt">
-										<!--사진-->
-										<p class="aboutPhoto">사진</p>
-										<!--사진-->
-										<!--소개글-->
-										<p class="aboutIntro">
-											웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
-											데헷
-										</p>
-										<!--소개글-->
+				<!--About-->
+				<div class="about" style="float: left">
+					<!--inner-->
+					<div class="inner cf">
+						<!--좌측메뉴-->
+						<div class="aboutL">
+							<!--텍스트박스-->
+							<div class="txtBox">
+								<!--메뉴-->
+								<div class="menu menu01">
+									<img src="images/menu.png" alt="메뉴버튼">
+								</div>
+								<!--메뉴-->
+								<!--페이지소개-->
+								<p class="pageName">김명환 ( Song. 요즘것들 )</p>
+								<!--페이지소개-->
+								<!--메인텍스트-->
+								<div class="aboutTxt">
+									<!--사진-->
+									<p class="aboutPhoto">사진</p>
+									<!--사진-->
+									<!--소개글-->
+									<p class="aboutIntro">
+										웹 프로그래머가 되기 위한 나의 여정..<br> <span>이제부터</span> 시작입니다.<br>
+										데헷
+									</p>
+									<!--소개글-->
+									<!--이름서명-->
+									<div class="nameSign">
+										<!--이름-->
+										<span class="name"> 김 명환 </span>
+										<!--이름-->
+										<!--서명-->
+										<img src="images/sign.png" alt="서명" class="sign">
+										<!--서명-->
 										<!--이름서명-->
-										<div class="nameSign">
-											<!--이름-->
-											<span class="name"> 김 명환 </span>
-											<!--이름-->
-											<!--서명-->
-											<img src="images/sign.png" alt="서명" class="sign">
-											<!--서명-->
-											<!--이름서명-->
+									</div>
+								</div>
+								<!--메인텍스트-->
+
+							</div>
+							<!--텍스트박스-->
+						</div>
+						<!--좌측메뉴-->
+
+						<!--우측메뉴-->
+						<dl class="aboutR">
+							<img src="images/graph1.png" width="600px" height="450px">
+							<div class="processbar">
+								<main>
+									<div class="main-content">
+
+										<div id="example-5" class="examples">
+											<h3>
+												<span>○</span> SKill
+											</h3>
+
+											<span class="cssProgress-label-title">먹는거 </span> <span
+												class="cssProgress-label-num">70%</span>
+											<div class="cssProgress">
+												<div class="progress">
+													<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
+													<div class="cssProgress-bar cssProgress-active" data-percent="70"
+														style="width: 55%;"></div>
+												</div>
+
+											</div>
+											<span class="cssProgress-label-title">찡찡거력 </span> <span
+												class="cssProgress-label-num">99.9%</span>
+
+											<div class="cssProgress">
+												<div class="progress">
+													<div class="cssProgress-bar cssProgress-success cssProgress-active"
+														data-percent="99.9" style="width: 65%;"></div>
+												</div>
+											</div>
+
+											<span class="cssProgress-label-title">호기심 </span> <span
+												class="cssProgress-label-num">100%</span>
+											<div class="cssProgress">
+												<div class="progress">
+													<div class="cssProgress-bar cssProgress-warning cssProgress-active"
+														data-percent="100" style="width: 55%;"></div>
+												</div>
+											</div>
+
 										</div>
 									</div>
-									<!--메인텍스트-->
-	
-								</div>
-								<!--텍스트박스-->
+									<!-- @end #example-5 -->
+								</main>
 							</div>
-							<!--좌측메뉴-->
-	
-							<!--우측메뉴-->
-							<dl class="aboutR">
-								<img src="images/graph1.png" width="600px" height="450px">
-								<div class="processbar">
-									<main>
-										<div class="main-content">
-	
-											<div id="example-5" class="examples">
-												<h3>
-													<span>○</span> SKill
-												</h3>
-	
-												<span class="cssProgress-label-title">먹는거 </span> <span
-													class="cssProgress-label-num">70%</span>
-												<div class="cssProgress">
-													<div class="progress">
-														<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
-														<div class="cssProgress-bar cssProgress-active"
-															data-percent="70" style="width: 55%;"></div>
-													</div>
-	
-												</div>
-												<span class="cssProgress-label-title">찡찡거력 </span> <span
-													class="cssProgress-label-num">99.9%</span>
-	
-												<div class="cssProgress">
-													<div class="progress">
-														<div
-															class="cssProgress-bar cssProgress-success cssProgress-active"
-															data-percent="99.9" style="width: 65%;"></div>
-													</div>
-												</div>
-	
-												<span class="cssProgress-label-title">호기심 </span> <span
-													class="cssProgress-label-num">100%</span>
-												<div class="cssProgress">
-													<div class="progress">
-														<div
-															class="cssProgress-bar cssProgress-warning cssProgress-active"
-															data-percent="100" style="width: 55%;"></div>
-													</div>
-												</div>
-	
-											</div>
-										</div>
-										<!-- @end #example-5 -->
-									</main>
-								</div>
-							</dl>
-	
-						</div>
-						<!--inner-->
+						</dl>
+
 					</div>
-					<!--About-->
+					<!--inner-->
+				</div>
+				<!--About-->
 			</div>
 			<!--section06-->
 
@@ -756,11 +889,12 @@
 									<li class="cInfo01"><img src="images/mainIcon.png"><span>thdek13@hanmail.net</span>
 										<!--<img src="images/copyBtn.png" alt="copyBtn" class="copyBtn copyBtn01">-->
 									</li>
-									<li class="cInfo02"><img src="images/kakaoIcon.png"><span>ID&nbsp;&nbsp;&nbsp;jeong1233</span>
+									<li class="cInfo02"><img
+											src="images/kakaoIcon.png"><span>ID&nbsp;&nbsp;&nbsp;jeong1233</span>
 										<!--<img src="images/copyBtn.png" alt="copyBtn copyBtn" class="copyBtn02">-->
 									</li>
 									<li class="cInfo03"><img src="images/domainBtn.png"
-										alt="호스팅아이콘"><span>http://jeong1233.dothome.co.kr/portfolio</span>
+											alt="호스팅아이콘"><span>http://jeong1233.dothome.co.kr/portfolio</span>
 										<!--<img src="images/copyBtn.png" alt="copyBtn" class="copyBtn copyBtn03">-->
 									</li>
 								</ul>
