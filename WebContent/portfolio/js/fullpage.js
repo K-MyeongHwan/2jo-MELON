@@ -1047,6 +1047,7 @@
             navigation.setAttribute('id', SECTION_NAV);
 
             var divUl = document.createElement('ul');
+            divUl.setAttribute("style","display:none");
             navigation.appendChild(divUl);
 
             appendTo(navigation, $body);
