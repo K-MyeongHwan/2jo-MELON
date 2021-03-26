@@ -84,16 +84,6 @@ $(document).ready(function () {
       "8thPage",
     ];
     
-    //이전 버튼
-    $('#prevbtn').on({
-      click : function(){
-        if(index-1===-1) {
-          index=0;
-        }
-        $('#prevbtn').attr("href","#"+ anchors[--index]);
-  
-      }
-    })
 
     //노래 재생, 정지 버튼                                                                                  //from stay
   $("#pausebtn").on({
@@ -115,17 +105,25 @@ $(document).ready(function () {
       }
     },
   });
-    
-    //다음버튼
-    $('#nextbtn').on({
-      click : function(){
-        if(index+1===8) {
-          index=-1;
-        }
-        $('#nextbtn').attr("href","#"+ anchors[++index]);
 
-      }
-    })
+     //이전 버튼
+          $('#prevbtn').on({
+            click : function(){
+              index = findActive();
+              $('#prevbtn').attr("href","#"+ anchors[--index]);
+            }
+          })
+      //다음버튼
+      $('#nextbtn').on({
+        click : function(){
+          index = findActive();
+          if(index==7) {
+            index=-1;
+          }
+          $('#nextbtn').attr("href","#"+ anchors[++index]);
+  
+        }
+      });
 
   //fullpage//
   $("#fullpage").fullpage({
@@ -187,7 +185,6 @@ $(document).ready(function () {
 }); //전체 닫기
 
 function findActive(){ /////////////////////////////현재 class에 active인 section 찾아 반환해준다.
-
   let page;
    $(" div[class*=active]").each(function () {
     // div중 class에 "active"가 포함된
@@ -201,5 +198,4 @@ function findActive(){ /////////////////////////////현재 class에 active인 se
   });
   console.log("page : " + page);
   return page;
-
 };
