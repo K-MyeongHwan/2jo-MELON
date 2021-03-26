@@ -30,6 +30,7 @@
 	padding: 120px 0;
 }
 
+
 #mainlist{
 	left:200px;
 	width:350px;
@@ -37,16 +38,50 @@
 	margin:auto;
 	align-items: center;
 	padding-top:10px;
+
 }
 
-#mainlist div{
-	border: 1px solid rgb(179, 176, 176);
+.innerAccordion{
+	border-bottom: 1px solid rgb(179, 176, 176);
 	background-color:white;
-	height:60px;
-	border-radius:3px;
+	height:55px;
+	/*border-radius:3px;*/
 	color:gray;
+	align-items: center;
+	text-align:center;
+	padding-top:15px;
 }
 
+.innerAccordion a{
+	color:rgb(138, 138, 138);	
+}
+
+.innerAccordion a:hover{
+	text-decoration:none;
+}
+.memberimg{
+	width:100%;
+	height:100%;
+	border-radius: 70%;
+	display:flex;
+
+}
+
+.circle{
+	border-radius: 70%;
+	width:20px;
+	height:20px;
+	background-color: rgb(82, 197, 82);
+	margin: 3px 0 0 50px;
+}
+
+#circle1{
+	background-color: rgb(211, 157, 255);
+}
+
+.memberimg p {
+	margin-left:20px;
+}
 .about .txtBox{
 	padding: 90px 0;
 }

@@ -21,6 +21,7 @@ $(document).ready(function() {
 (function($) {
 
   $.fn.progress_fnc = function(options) {
+    
     var settings = $.extend({
       type: 'start'
     }, options);

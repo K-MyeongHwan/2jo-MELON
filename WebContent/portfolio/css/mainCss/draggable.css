@@ -30,6 +30,9 @@
 
 }
 
+#box ul:hover{
+    animation-play-state: paused;
+}
 
 #box ul li{
     height:100%;

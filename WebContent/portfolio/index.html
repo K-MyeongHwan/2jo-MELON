@@ -26,8 +26,13 @@
 	<link rel="stylesheet" href="css/mainCss/cssprogress.css">
 	<link rel="stylesheet" type="text/css" href="css/mainCss/draggable.css">
 
+	<!--드래거블-->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
 	<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" type="text/javascript"></script>
+
 
 	<script src="js/scrolloverflow.js" type="text/javascript"></script>
 	<script src="js/scrolloverflow.min.js" type="text/javascript"></script>
@@ -41,41 +46,70 @@
 
 		$(document).ready(function () {
 
-			loopmenu();
+
 			setalbum();
-
-			$( function () {
-			$("#mainlist").accordion({
-				collapsible: true
+			loopmenu();
+/*
+			document.getElementById("test").addEventListener("click", function () {
+				console.log(1234);
+				initialize();
+				changePercent();
 			});
+*/
 		});
 
+
+		// 루프와 드래거블이 동시에 안된다
+		$("#box").on(mouseover, function (event) {
+			drag();
 		});
+
 
 		//계속 옆으로 도는 메뉴 만들기
 		function loopmenu() {
 			$("#box > ul > li").clone().appendTo("#box > ul");
+
 		}
 
 		// 이미지 배열로 넣기
 		function setalbum() {
 
 			let li = $("#box > ul >li");
-			let album = $("#box > ul >li > div");
+			let album = $("#box > ul >li > a > div");
 
-			let imgs = ["images/images/img.jpg", "images/images/img.jpg", "images/images/img.jpg",
-				"images/images/img.jpg", "images/images/img.jpg", "images/images/img.jpg",
-				"images/images/img.jpg", "images/images/img.jpg", "images/images/img.jpg",
-				"images/images/img.jpg", "images/images/img.jpg", "images/images/img.jpg"];
+			let imgs = ["images/1.png", "images/images/img.jpg", "images/images/img.jpg",
+				"images/4.png", "images/images/img.jpg", "images/images/img.jpg"]
+
 
 			for (let index = 0; index < li.length; index++) {
 
-				li[index].style.backgroundImage = "url(" + imgs[index] + ")";
-				li[index].style.backgroundSize = 180 + "px";
+				album[index].style.backgroundImage = "url(" + imgs[index] + ")";
+				album[index].style.backgroundSize = 180 + "px";
 			}
+		}
+		/*
+		//드래거블
+		function drag(){
+			$(function(){
+				$("#box").draggable({ axis: "x" });
+			});
+			
+		}
+	*/
+
+		//프로세스바
+		function initialize() {
+			$("#test").gaugeMeter();
+
 		}
 
 
+
+		function changePercent() {
+			$("#test").data("percent", 70);
+			$("#test").empty();
+			$("#test").gaugeMeter();
+		}
 
 
 	</script>
@@ -104,62 +138,54 @@
 			<div class="section" id="section0">
 				<!--Intro-->
 				<div class="intro">
-						<!--텍스트박스-->
-						<div id="maintxtBox">
+					<!--텍스트박스-->
+					<div id="maintxtBox">
 
-							<div id="titlebox">
-								<p>BIT Pl2y</p>
-							   <!--<img src="images/bitlogo.png"> -->
-						   </div>
-						   <!--mainlist-->
-						   <!-- 이 안에 멤버들 목록을 넣어서 각 페이지로 링크를 건다-->
-						   <div id="mainlist">
-							   <!--<h3 class="acdtitle">1</h3>-->
-							   <div class="innerAccordion">
-								   <a href="#1stPage">
-									   <div class="memberimg">1</div>
-									   <p></p>
-								   </a>
-							   </div>
-							   <!--<h3 class="acdtitle">2</h3>-->
-							   <div class="innerAccordion">
-								   <a href="#2ndPage">
-									   <div class="memberimg"></div>
-									   <p></p>
-								   </a>
-							   </div>
-							   <!--<h3 class="acdtitle">3</h3>-->
-							   <div class="innerAccordion">
-								   <a href="#3rdPage">
-									   <div class="memberimg"></div>
-									   <p></p>
-								   </a>
-							   </div>
-							   <!--<h3 class="acdtitle">4</h3>-->
-							   <div class="innerAccordion">
-								   <a href="#4thPage">
-									   <div class="memberimg"></div>
-									   <p></p>
-								   </a>
-							   </div>
-							   <!--<h3 class="acdtitle">5</h3>-->
-							   <div class="innerAccordion">
-								   <a href="#5thPage">
-									   <div class="memberimg"></div>
-									   <p></p>
-								   </a>
-							   </div>
-							   <!--<h3 class="acdtitle">6</h3>-->
-							   <div class="innerAccordion">
-								   <a href="#6thPage">
-									   <div class="memberimg"></div>
-									   <p></p>
-								   </a>
-							   </div>
-						   </div>
-
+						<div id="titlebox">
+							<p>BIT Pl2y</p>
+							<!--<img src="images/bitlogo.png"> -->
 						</div>
-						<!--텍스트박스-->
+						<!--mainlist-->
+						<!-- 이 안에 멤버들 목록을 넣어서 각 페이지로 링크를 건다-->
+						<div id="mainlist">
+							<div class="innerAccordion" id="listtop">
+								<a href="#2ndPage">
+									<div class="memberimg"><div id="circle1" class="circle"> </div><p>이가희</p></div>									
+								</a>
+							</div>
+							<div class="innerAccordion">
+								<a href="#3rdPage">
+									<div class="memberimg"><div id="circle2" class="circle"> </div><p>김현진</p></div>
+									</a>
+								
+							</div>
+							<div class="innerAccordion">
+								<a href="#4thPage">
+									<div class="memberimg"><div id="circle3" class="circle"> </div><p>김영훈</p></div>
+									
+								</a>
+							</div>
+							<div class="innerAccordion">
+								<a href="#5thPage">
+									<div class="memberimg"><div id="circle4" class="circle"> </div><p>서태희</p></div>
+									
+								</a>
+							</div>
+							<div class="innerAccordion">
+								<a href="#6thPage">
+									<div class="memberimg"><div id="circle5" class="circle"> </div><p>이상엽</p></div>
+									
+								</a>
+							</div>
+							<div class="innerAccordion">
+								<a href="#7thPage">
+									<div class="memberimg"><div id="circle6" class="circle"> </div><p>김명환</p></div>
+								</a>
+							</div>
+						</div>
+
+					</div>
+					<!--텍스트박스-->
 
 					<!--DraggDiv-->
 					<div id="dragDiv">
@@ -168,53 +194,53 @@
 							<!-- 무한루프 돌 메뉴 -->
 							<ul>
 								<li>
-									<a href="#2ndPage"">
-									<div id=" dgd1" class="draggingTarget">
-										1
-						</div>
-						</a>
-						</li>
-						<li>
-							<a href="#3rdPage"">
-									<div id=" dgd2" class="draggingTarget">
-								2
-					</div>
-					</a>
-					</li>
-					<li>
-						<a href="#4thPage">
-							<div id="dgd3" class="draggingTarget">
-								3
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#5thPage">
-							<div id="dgd4" class="draggingTarget">
-								4
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#6thPage">
-							<div id="dgd5" class="draggingTarget">
-								5
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<div id="dgd6" class="draggingTarget">
-								6
-							</div>
-						</a>
-					</li>
+									<a href="#2ndPage">
+										<div id=" dgd1" class="draggingTarget">
+											1
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#3rdPage">
+										<div id=" dgd2" class="draggingTarget">
+											2
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#4thPage">
+										<div id="dgd3" class="draggingTarget">
+											3
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#5thPage">
+										<div id="dgd4" class="draggingTarget">
+											4
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#6thPage">
+										<div id="dgd5" class="draggingTarget">
+											5
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div id="dgd6" class="draggingTarget">
+											6
+										</div>
+									</a>
+								</li>
 
-					</ul>
-				</div>
-				<!--box끝-->
-			</div>
-			<!--DraggDiv 끝-->
+							</ul>
+						</div>
+						<!--box끝-->
+					</div>
+					<!--DraggDiv 끝-->
 				</div>
 				<!--Intro-->
 			</div>
@@ -284,8 +310,8 @@
 											<div class="cssProgress">
 												<div class="progress">
 													<!-- data-percent가 안에 퍼센트 바꿔주는거 -->
-													<div class="cssProgress-bar cssProgress-active" data-percent="70"
-														style="width: 55%;"></div>
+													<div class="cssProgress-bar cssProgress-active" id="test"
+														data-percent=70; style="width: 55%;"></div>
 												</div>
 
 											</div>
