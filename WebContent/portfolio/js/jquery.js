@@ -37,7 +37,7 @@ $(document).ready(function () {
 
   //menu//
 
-  let audio = [
+  let info = [
     {
       albumpath: "",
       audiopath: "music/braveGirls.mp3",
@@ -99,19 +99,16 @@ $(document).ready(function () {
   $("#pausebtn").on({
     click: function () {
       let check = $("#realaudio").attr("class"); //audio의 class가 playing인지 pause인지 구별하기위한 변수
-      console.log(check);
       console.log("THIS IS PAUSEBTN");
 
       let track = findActive();
-      console.log("track : "+track)
 
-      console.log("track is not 0");
       if (check === "playing") {
         $("#realaudio").removeClass("playing").addClass("pause");
         $("#realaudio").attr("src", "");
       } else if (check === "pause") {
         $("#realaudio").removeClass("pause").addClass("playing");
-        audioPlay(track, audio);
+        audioPlay(track, info);
       }
     },
   });
@@ -147,38 +144,27 @@ $(document).ready(function () {
     menu: "#menu",
     afterLoad: function (origin, destination, direction) {                                  //from stay
       if (origin) {
-        progressbar_start(origin.index, destination.index);
-        audioPlay(destination.index, audio); // destination.index >> 현재 페이지 번호
+        // progressbar_start(origin.index, destination.index);
+        audioPlay(destination.index, info); // destination.index >> 현재 페이지 번호
+        progressbar_restart(origin.index, destination.index);
       }
-    },
+    }
   });
   //fullpage//
-  
-  //progressbar reset하고 start하기
-  function progressbar_start(){
-    let page = findActive();//페이지 번호
-    
- 
-    
-  }
-  //progressbar reset하고 start하기
 
   //인원에 맞는 노래 플레이//
   //페이지에 맞는 번호와 audio index를 매칭해서 노래 플레이
-  function audioPlay(index, audio) {                                                                //from stay
+  function audioPlay(index, info) {                                                                //from stay
     if (index !== 0) {
-      console.log("this is " + index);
-      console.log(audio[index - 1]);
-      $("#realaudio").attr("src", audio[index - 1].audiopath);
+      $("#realaudio").attr("src", info[index - 1].audiopath);
       $("#realaudio").play;
       $("#realaudio").attr("class", "playing");
     } else {
-      console.log("this is " + index);
-      console.log(audio[index - 1]);
       $("#realaudio").attr("src", "");
     }
 
   };
+
   //클립보드복사//
 
   //경고창//
@@ -193,13 +179,11 @@ function findActive(){ /////////////////////////////현재 class에 active인 se
     // div중 class에 "active"가 포함된
     let id = $(this).attr("id");
     if (id !== undefined) {
-      console.log("id : " +id);
       if (id.includes("section")) {
         page = id.substring(id.length - 1);
       }
     }
   });
-  console.log("page : " + page);
   return page;
 
 };
