@@ -87,11 +87,8 @@ $(document).ready(function () {
     //이전 버튼
     $('#prevbtn').on({
       click : function(){
-        if(index-1===-1) {
-          index=0;
-        }
+        index = findActive();
         $('#prevbtn').attr("href","#"+ anchors[--index]);
-  
       }
     })
 
@@ -116,13 +113,14 @@ $(document).ready(function () {
     //다음버튼
     $('#nextbtn').on({
       click : function(){
-        if(index+1===8) {
+        index = findActive();
+        if(index==7) {
           index=-1;
         }
         $('#nextbtn').attr("href","#"+ anchors[++index]);
 
       }
-    })
+    });
 
   //fullpage//
   $("#fullpage").fullpage({
@@ -155,7 +153,7 @@ $(document).ready(function () {
   //인원에 맞는 노래 플레이//
   //페이지에 맞는 번호와 audio index를 매칭해서 노래 플레이
   function audioPlay(index, info) {                                                                //from stay
-    if (index !== 0) {
+    if (index >0 && index<index.length) {
       $("#realaudio").attr("src", info[index - 1].audiopath);
       $("#realaudio").play;
       $("#realaudio").attr("class", "playing");
