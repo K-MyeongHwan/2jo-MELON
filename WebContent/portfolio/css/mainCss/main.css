@@ -270,6 +270,7 @@ pageName span{
 .processbar{
 	width:500px;
 	height:300px;
+	margin-top: 30px;
 }
 .aboutR dt{
 	font-size: 25px;
