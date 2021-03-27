@@ -12,7 +12,7 @@
 }
 
 #titlebox{
-	width:50%;
+	width:80%;
 	text-align: center;
 }
 #titlebox p {
@@ -32,8 +32,8 @@
 
 
 #mainlist{
-	left:200px;
-	width:350px;
+
+	width:15%;
 	height:450px;
 	margin:auto;
 	align-items: center;
@@ -42,7 +42,7 @@
 }
 
 .innerAccordion{
-	border-bottom: 1px solid rgb(179, 176, 176);
+	/*border-bottom: 1px solid rgb(179, 176, 176);*/
 	background-color:white;
 	height:55px;
 	/*border-radius:3px;*/
@@ -76,8 +76,28 @@
 }
 
 #circle1{
-	background-color: rgb(211, 157, 255);
+	background-color: rgb(236, 222, 255);
 }
+#circle2{
+	background-color: rgb(255, 195, 203);
+}
+
+#circle3{
+	background-color: rgb(194, 194, 199);
+}
+
+#circle4{
+	background-color: rgb(185, 239, 255);
+}
+
+#circle5{
+	background-color: rgb(101, 173, 255);
+}
+
+#circle6{
+	background-color: rgb(245, 214, 128);
+}
+
 
 .memberimg p {
 	margin-left:20px;
@@ -163,9 +183,19 @@ pageName span{
 }
 
 
-#section1 .txtBox, #section2 .txtBox, #section3 .txtBox, #section4 .txtBox, #section5 .txtBox{
-	background: rgba(102,112,103,0.2);
+#section1 .txtBox, #section2 .txtBox, #section3 .txtBox, #section4 .txtBox, #section5 .txtBox, #section6 .txtBox,
+
+#section1 .examples, #section2 .examples, #section3 .examples, #section4 .examples, #section5 .examples, #section6 .examples{
+	background: rgba(133, 136, 133, 0.2);
+	margin-top:20px;
 }
+
+.mbti{
+	width:500px;
+	height:450px;
+}
+
+
 
 /***Intro***/
 #section0{
@@ -176,7 +206,7 @@ pageName span{
 
 /***About***/
 #section1{
-	background: #f9ecd8;
+	background: rgb(236, 222, 255);
 	width: 100%;
 	float : left;
 }
@@ -190,16 +220,16 @@ pageName span{
 }
 
 .aboutPhoto{
-	background: url(../../images/KimMyeongHwan.jpg) no-repeat center center;
+	background: no-repeat center center;
 	background-size: cover;
-	width: 334px;
-	height: 334px;
+	width: 400px;
+	height: 400px;
 	text-indent: -9999px;
 	margin: 0 auto;
 }
 
 .aboutIntro{
-	width: 490px;
+	width: 400px;
 	line-height: 34px;
 	margin: 30px auto;
 	font-family: 'NanumSquare', sans-serif;
@@ -214,7 +244,7 @@ pageName span{
 
 .nameSign{
 	text-align: right;
-	margin-right: 13px;
+	margin-right: 100px;
 }
 .name{
 	vertical-align: middle;
@@ -407,7 +437,7 @@ pageName span{
 
 /***Portfolio01***/
 #section2{
-	background: #80abbc;
+	background: rgb(255, 195, 203);
 	width: 100%;
 
 }
@@ -417,7 +447,7 @@ pageName span{
 
 /***Portfolio02***/
 #section3{
-	background: #f1e4b1;
+	background: rgb(194, 194, 199);
 	width: 100%;
 
 }
@@ -437,13 +467,13 @@ pageName span{
 
 /***Portfolio03***/
 #section4{
-	background: #fb9da3;
+	background: rgb(185, 239, 255);
 	width: 100%;
 	padding: 51px 0;
 }
 /**좌측메뉴**/
 .portfolio03 .mainPage{
-	background: url(../../images/hollysMain.png) no-repeat center center;
+
 	width: 449px;
 	height: 196px;
 
@@ -471,13 +501,13 @@ pageName span{
 
 /***Portfolio05***/
 #section5{
-	background: #7accc8;
+	background: rgb(101, 173, 255);
 	width: 100%;
 
 }
 /**좌측메뉴**/
 .portfolio04 .mainPage{
-	background: url(../../images/hansolMain.png) no-repeat center center;
+
 	width: 450px;
 	height: 179px;
 
@@ -502,7 +532,7 @@ pageName span{
 
 /***Portfolio05***/
 #section6{
-	background: #b7d8cf;
+	background: rgb(245, 214, 128);
 	width: 100%;
 
 }
@@ -555,104 +585,18 @@ pageName span{
 	font-weight: 600;
 	margin-left: 10px;
 }
-.contact .logo{
-	position: absolute;
-	top: 109px;
-	left: 13px;
-}
-.contact .mail{
-	position: absolute;
-	left: 13px;
-	bottom: 13px;
-}
 
-.portTxt h2{
-	display: inline-block;
-	vertical-align: middle;
+#section7{
+	align-items:center;
+	background-color: white;
 }
-
-.contact .portTxt h3{
-		text-align: center;
-		font-size: 16px;
-		font-weight: 400;
-		padding: 30px 0;
-	}
-
-.cInfo{
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: 30px;
+#section7 p {
+	font-size:65px;
+	font-family: 'Oxygen', sans-serif;
+	color:rgb(82, 197, 82);
+	margin:auto;
+	text-align: center;
 }
-.cInfo li{
-	position: relative;
-}
-.cInfo li span{
-	cursor: pointer;
-}
-/*.triangle{
-	display: inline-block;
-	width: 0;
-	height: 0px;
-	border-top: 50px solid transparent;
-	border-right: 50px solid #fff;
-	border-left: 50px solid f;
-	border-bottom: 50px solid transparent;
-	text-indent: -9999px;
-	vertical-align: middle;
-}*/
-
-.contact .txtBox{
-	background: none;
-	width: 100%;
-	height: auto;
-}
-
-.contact .cTxtBox{
-	width: 440px;
-	text-align: left;
-	line-height: 30px;
-	margin: 0 auto;
-	margin-top: 50px;
-}
-.cTxtBox p{
-	font-size: 18px;
-	font-weight: 300;
-}
-.cTxtBox span{
-	font-size: 20px;
-	font-weight: 600;
-}
-
-
-.contact .portTxt span {
-	vertical-align: top;
-}
-/*.cInfo .copyBtn01{
-	position: absolute;
-	top: 50%;
-	margin-top: -10px;
-	right: -50px;
-	cursor: pointer;
-	width: 40px;
-}
-.cInfo .copyBtn02{
-	position: absolute;
-	top: 50%;
-	margin-top: -10px;
-	right: -50px;
-	cursor: pointer;
-	width: 40px;
-}
-
-.cInfo .copyBtn03{
-	position: absolute;
-	top: 50%;
-	margin-top: -10px;
-	right: -50px;
-	cursor: pointer;
-	width: 40px;
-}*/
-
 
 
 

@@ -41,79 +41,6 @@
 	<script src="js/fullpage.js" type="text/javascript"></script>
 	<script src="js/jquery.js" type="text/javascript"></script>
 
-	<script type="text/javascript">
-
-
-		$(document).ready(function () {
-
-
-			setalbum();
-			loopmenu();
-/*
-			document.getElementById("test").addEventListener("click", function () {
-				console.log(1234);
-				initialize();
-				changePercent();
-			});
-*/
-		});
-
-
-		// 루프와 드래거블이 동시에 안된다
-		$("#box").on(mouseover, function (event) {
-			drag();
-		});
-
-
-		//계속 옆으로 도는 메뉴 만들기
-		function loopmenu() {
-			$("#box > ul > li").clone().appendTo("#box > ul");
-
-		}
-
-		// 이미지 배열로 넣기
-		function setalbum() {
-
-			let li = $("#box > ul >li");
-			let album = $("#box > ul >li > a > div");
-
-			let imgs = ["images/1.png", "images/images/img.jpg", "images/images/img.jpg",
-				"images/4.png", "images/images/img.jpg", "images/images/img.jpg"]
-
-
-			for (let index = 0; index < li.length; index++) {
-
-				album[index].style.backgroundImage = "url(" + imgs[index] + ")";
-				album[index].style.backgroundSize = 180 + "px";
-			}
-		}
-		/*
-		//드래거블
-		function drag(){
-			$(function(){
-				$("#box").draggable({ axis: "x" });
-			});
-			
-		}
-	*/
-
-		//프로세스바
-		function initialize() {
-			$("#test").gaugeMeter();
-
-		}
-
-
-
-		function changePercent() {
-			$("#test").data("percent", 70);
-			$("#test").empty();
-			$("#test").gaugeMeter();
-		}
-
-
-	</script>
-
 </head>
 
 <body>
@@ -196,42 +123,42 @@
 								<li>
 									<a href="#2ndPage">
 										<div id=" dgd1" class="draggingTarget">
-											1
+
 										</div>
 									</a>
 								</li>
 								<li>
 									<a href="#3rdPage">
 										<div id=" dgd2" class="draggingTarget">
-											2
+
 										</div>
 									</a>
 								</li>
 								<li>
 									<a href="#4thPage">
 										<div id="dgd3" class="draggingTarget">
-											3
+	
 										</div>
 									</a>
 								</li>
 								<li>
 									<a href="#5thPage">
 										<div id="dgd4" class="draggingTarget">
-											4
+
 										</div>
 									</a>
 								</li>
 								<li>
 									<a href="#6thPage">
 										<div id="dgd5" class="draggingTarget">
-											5
+	
 										</div>
 									</a>
 								</li>
 								<li>
 									<a href="#">
 										<div id="dgd6" class="draggingTarget">
-											6
+
 										</div>
 									</a>
 								</li>
@@ -258,11 +185,11 @@
 							<div class="txtBox">
 								<!--메뉴-->
 								<div class="menu menu01">
-									<img src="images/menu.png" alt="메뉴버튼">
+
 								</div>
 								<!--메뉴-->
 								<!--페이지소개-->
-								<p class="pageName">김명환 ( Song. 요즘것들 )</p>
+								<p class="pageName">이가희 ( Song. Celebrity )</p>
 								<!--페이지소개-->
 								<!--메인텍스트-->
 								<div class="aboutTxt">
@@ -281,7 +208,6 @@
 										<span class="name"> 김 명환 </span>
 										<!--이름-->
 										<!--서명-->
-										<img src="images/sign.png" alt="서명" class="sign">
 										<!--서명-->
 										<!--이름서명-->
 									</div>
@@ -295,7 +221,7 @@
 
 						<!--우측메뉴-->
 						<dl class="aboutR">
-							<img src="images/graph1.png" width="600px" height="450px">
+							<div class="mbti"></div>
 							<div class="processbar">
 								<main>
 									<div class="main-content">
@@ -364,11 +290,11 @@
 							<div class="txtBox">
 								<!--메뉴-->
 								<div class="menu menu01">
-									<img src="images/menu.png" alt="메뉴버튼">
+
 								</div>
 								<!--메뉴-->
 								<!--페이지소개-->
-								<p class="pageName">김명환 ( Song. 요즘것들 )</p>
+								<p class="pageName">김현진 ( Song. 찐이야 )</p>
 								<!--페이지소개-->
 								<!--메인텍스트-->
 								<div class="aboutTxt">
@@ -387,7 +313,7 @@
 										<span class="name"> 김 명환 </span>
 										<!--이름-->
 										<!--서명-->
-										<img src="images/sign.png" alt="서명" class="sign">
+								
 										<!--서명-->
 										<!--이름서명-->
 									</div>
@@ -401,7 +327,7 @@
 
 						<!--우측메뉴-->
 						<dl class="aboutR">
-							<img src="images/graph1.png" width="600px" height="450px">
+							<div class="mbti"></div>
 							<div class="processbar">
 								<main>
 									<div class="main-content">
@@ -469,7 +395,7 @@
 							<div class="txtBox">
 								<!--메뉴-->
 								<div class="menu menu01">
-									<img src="images/menu.png" alt="메뉴버튼">
+
 								</div>
 								<!--메뉴-->
 								<!--페이지소개-->
@@ -492,7 +418,7 @@
 										<span class="name"> 김 명환 </span>
 										<!--이름-->
 										<!--서명-->
-										<img src="images/sign.png" alt="서명" class="sign">
+										
 										<!--서명-->
 										<!--이름서명-->
 									</div>
@@ -506,7 +432,7 @@
 
 						<!--우측메뉴-->
 						<dl class="aboutR">
-							<img src="images/graph1.png" width="600px" height="450px">
+							<div class="mbti"></div>
 							<div class="processbar">
 								<main>
 									<div class="main-content">
@@ -573,7 +499,7 @@
 							<div class="txtBox">
 								<!--메뉴-->
 								<div class="menu menu01">
-									<img src="images/menu.png" alt="메뉴버튼">
+
 								</div>
 								<!--메뉴-->
 								<!--페이지소개-->
@@ -596,7 +522,7 @@
 										<span class="name"> 김 명환 </span>
 										<!--이름-->
 										<!--서명-->
-										<img src="images/sign.png" alt="서명" class="sign">
+										
 										<!--서명-->
 										<!--이름서명-->
 									</div>
@@ -610,7 +536,7 @@
 
 						<!--우측메뉴-->
 						<dl class="aboutR">
-							<img src="images/graph1.png" width="600px" height="450px">
+							<div class="mbti"></div>
 							<div class="processbar">
 								<main>
 									<div class="main-content">
@@ -675,7 +601,7 @@
 							<div class="txtBox">
 								<!--메뉴-->
 								<div class="menu menu01">
-									<img src="images/menu.png" alt="메뉴버튼">
+
 								</div>
 								<!--메뉴-->
 								<!--페이지소개-->
@@ -698,7 +624,7 @@
 										<span class="name"> 김 명환 </span>
 										<!--이름-->
 										<!--서명-->
-										<img src="images/sign.png" alt="서명" class="sign">
+									
 										<!--서명-->
 										<!--이름서명-->
 									</div>
@@ -712,7 +638,7 @@
 
 						<!--우측메뉴-->
 						<dl class="aboutR">
-							<img src="images/graph1.png" width="600px" height="450px">
+							<div class="mbti"></div>
 							<div class="processbar">
 								<main>
 									<div class="main-content">
@@ -777,7 +703,7 @@
 							<div class="txtBox">
 								<!--메뉴-->
 								<div class="menu menu01">
-									<img src="images/menu.png" alt="메뉴버튼">
+
 								</div>
 								<!--메뉴-->
 								<!--페이지소개-->
@@ -800,7 +726,7 @@
 										<span class="name"> 김 명환 </span>
 										<!--이름-->
 										<!--서명-->
-										<img src="images/sign.png" alt="서명" class="sign">
+										
 										<!--서명-->
 										<!--이름서명-->
 									</div>
@@ -814,7 +740,8 @@
 
 						<!--우측메뉴-->
 						<dl class="aboutR">
-							<img src="images/graph1.png" width="600px" height="450px">
+							
+							<div class="mbti"></div>
 							<div class="processbar">
 								<main>
 									<div class="main-content">
@@ -866,58 +793,14 @@
 				<!--About-->
 			</div>
 			<!--section06-->
-
-
-			<!--section07-->
-			<div class="section fp-auto-height" id="section7">
-				<!--contact-->
-				<div class="contact">
-
-					<!--inner-->
-					<div class="inner">
-						<!--텍스트박스-->
-						<div class="txtBox">
-							<!--페이지소개-->
-							<p class="pageName">Contact</p>
-							<!--페이지소개-->
-							<!--메인텍스트-->
-							<div class="portTxt">
-								<h2>
-									Thank you<br> for watching
-								</h2>
-								<ul class="cInfo">
-									<li class="cInfo01"><img src="images/mainIcon.png"><span>thdek13@hanmail.net</span>
-										<!--<img src="images/copyBtn.png" alt="copyBtn" class="copyBtn copyBtn01">-->
-									</li>
-									<li class="cInfo02"><img
-											src="images/kakaoIcon.png"><span>ID&nbsp;&nbsp;&nbsp;jeong1233</span>
-										<!--<img src="images/copyBtn.png" alt="copyBtn copyBtn" class="copyBtn02">-->
-									</li>
-									<li class="cInfo03"><img src="images/domainBtn.png"
-											alt="호스팅아이콘"><span>http://jeong1233.dothome.co.kr/portfolio</span>
-										<!--<img src="images/copyBtn.png" alt="copyBtn" class="copyBtn copyBtn03">-->
-									</li>
-								</ul>
-								<h3>연락처 아이콘을 클릭하시면 원하시는 연락처가 클립보드로 복사됩니다.</h3>
-								<!--맺음말-->
-								<div class="cTxtBox">
-									<p>
-										항상 밝고 긍정적인 마인드로 임하겠습니다. 사용자의 니즈를 충족할 수 있는 디자인을 만들기 위해 항상 열린
-										마인드로 소통하는 웹디자이너 <span>송 지나</span>가 될 것을 약속합니다.
-									</p>
-								</div>
-								<!--맺음말-->
-							</div>
-							<!--메인텍스트-->
-						</div>
-						<!--텍스트박스-->
-
-					</div>
-					<!--inner-->
-				</div>
-				<!--contact-->
+			<div class="section" id="section7">
+				<P>Thank you</P>
 			</div>
+
 			<!--section07-->
+
+			<!--section07-->
+		
 		</div>
 		<!--fullpage-->
 	</div>
