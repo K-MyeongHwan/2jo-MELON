@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   //menu//
   //mlnb01//
@@ -21,42 +22,47 @@ $(document).ready(function () {
 
   let info = [
     {
-      //이가희
-      albumpath: "",
+
+//이가희
+      albumpath: "images/1.png",
       audiopath: "music/Celebrity.mp3",
-      selfiepath: "selfie/lkh.jpg",
-      mbti:"",
-      processbar:""
+      selfiepath: "images/lkh.jpg",
+      mbti: "images/mbti1.png"
     },
     {
       //김현진
-      albumpath: "",
+      albumpath: "images/2.jpg",
       audiopath: "music/Real.mp3",
-      selfiepath: "selfie/khj.jpg",
+      selfiepath: "images/khj.jpg",
+      mbti: "images/mbti2.png"
     },
     {
       //김영훈
-      albumpath: "",
+      albumpath: "images/3.png",
       audiopath: "music/Welcome To The Black Parade.mp3",
-      selfiepath: "selfie/kyh.jpg",
+      selfiepath: "images/kyh.jpg",
+      mbti: "images/mbti3.png"
     },
     {
       //서태희
-      albumpath: "",
+      albumpath: "images/4.png",
       audiopath: "music/A head full of dreams.mp3",
-      selfiepath: "selfie/sth.jpg",
+      selfiepath: "images/sth.jpg",
+      mbti: "images/mbti4.png"
     },
     {
       //이상엽
-      albumpath: "",
+      albumpath: "images/5.jpeg",
       audiopath: "music/Rollin.mp3",
-      selfiepath: "selfie/lsy.jpg",
+      selfiepath: "images/lsy.jpg",
+      mbti: "images/mbti5.png"
     },
     {
       //김명환
-      albumpath: "",
+      albumpath: "images/6.jpg",
       audiopath: "music/Latte.mp3",
-      selfiepath: "selfie/kmh.jpg",
+      selfiepath: "images/kmh.jpg",
+      mbti: "images/mbti6.png"
     },
   ];
 
@@ -71,17 +77,51 @@ $(document).ready(function () {
       "7thPage",
       "8thPage",
     ];
-    
-    //이전 버튼
-    $('#prevbtn').on({
-      click : function(){
-        index = findActive();
-        $('#prevbtn').attr("href","#"+ anchors[--index]);
-      }
-    })
+    //메인페이지 앨범아트, 각 페이지 셀카
+  let li = $("#box > ul >li");
+  let album = $("#box > ul >li > a > div");
+  let selfiesection = $(".aboutphoto");
 
+
+  for (let index = 0; index < li.length; index++) {
+
+    // 앨범아트 넣기
+    let img = info[index].albumpath;
+    album[index].style.backgroundImage = "url(" + img + ")";
+    album[index].style.backgroundSize = 180 + "px";
+
+  }
+
+  pages = 6;
+  for (let index = 1; index <= pages; index++ ) {
+    
+
+    //페이지별 셀카 넣기
+    let selfie = info[index-1].selfiepath;
+      $("#section" + index + " .aboutPhoto").attr("style","background-Image:url('" + selfie + "'); background-size:400px");
+
+    //페이지별 mbti
+    let mbti = info[index-1].mbti;
+    $("#section" + index + " .mbti").attr("style","background-Image:url('" + mbti + "'); background-size:500px");
+
+  }
+
+
+
+  // 계속 옆으로 도는 메뉴 만들기
+  // 이 쿼리문과 css애니메이션 콤비
+  $("#box > ul > li").clone().appendTo("#box > ul");
+
+
+  //이전 버튼
+  $('#prevbtn').on({
+    click: function () {
+      index = findActive();
+      $('#prevbtn').attr("href", "#" + anchors[--index]);
+    }
+  })
     //from stay
-    //노래 재생, 정지 버튼
+  //노래 재생, 정지 버튼                             
   $("#pausebtn").on({
     click: function () {
       let check = $("#realaudio").attr("class"); //audio의 class가 playing인지 pause인지 구별하기위한 변수
@@ -98,6 +138,7 @@ $(document).ready(function () {
       }
     },
   });
+
     //다음버튼
     $('#nextbtn').on({
       click : function(){
@@ -106,7 +147,6 @@ $(document).ready(function () {
           index=-1;
         }
         $('#nextbtn').attr("href","#"+ anchors[++index]);
-
       }
     });
 
@@ -135,6 +175,7 @@ $(document).ready(function () {
         console.log("AFTERLOAD");
         audioPlay(destination.index, info); // destination.index >> 현재 페이지 번호
         progressbar_restart(origin.index, destination.index); //origin.index >> 이전 페이지 번호
+
       }
     }
   });
@@ -155,7 +196,6 @@ $(document).ready(function () {
       $("#realaudio").attr("src", "");//iframe의 src를 ""로 만들어 노래를 꺼버림.
     }
   };
-
 });
 
 // 현재 페이지 번호 반환해주는 함수

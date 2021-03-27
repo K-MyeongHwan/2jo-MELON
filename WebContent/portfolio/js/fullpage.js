@@ -785,7 +785,7 @@
                     //leaving a child inside the normalScoll element is not leaving the normalScroll #3661
                     var isNormalScrollChildFocused = closest(target, normalSelector);
 
-                    if(isNormalScrollTarget || isNormalScrollChildFocused){
+                    if(isNormalScrollTarget || isNormalScrollChildFocused){
                         if(!FP.shared.isNormalScrollElement){
                             setMouseHijack(false);
                         }
@@ -1398,13 +1398,12 @@
         var touchEndX = 0;
 
         /* Detecting touch events
-
         * As we are changing the top property of the page on scrolling, we can not use the traditional way to detect it.
         * This way, the touchstart and the touch moves shows an small difference between them which is the
         * used one to determine the direction.
         */
         function touchMoveHandler(e){
-            var activeSection = closest(e.target, SECTION_SEL) || $(SECTION_ACTIVE_SEL)[0];
+            var activeSection = closest(e.target, SECTION_SEL) || $(SECTION_ACTIVE_SEL)[0];
 
             if (isReallyTouch(e) ) {
 
@@ -1880,7 +1879,6 @@
                         /* Hack!
                         The timeout prevents setting the most dominant section in the viewport as "active" when the user
                         scrolled to a smaller section by using the mousewheel (auto scrolling) rather than draging the scroll bar.
-
                         When using scrollBar:true It seems like the scroll events still getting propagated even after the scrolling animation has finished.
                         */
                         setTimeout(function(){
@@ -3836,11 +3834,9 @@
 
     /**
     Usage:
-
     var wrapper = document.createElement('div');
     wrapper.className = 'fp-slides';
     wrap($('.slide'), wrapper);
-
     https://jsfiddle.net/qwzc7oy3/15/ (vanilla)
     https://jsfiddle.net/oya6ndka/1/ (jquery equivalent)
     */
@@ -3863,7 +3859,6 @@
     var wrapper = document.createElement('div');
     wrapper.className = 'fp-slides';
     wrap($('.slide'), wrapper);
-
     https://jsfiddle.net/qwzc7oy3/27/ (vanilla)
     https://jsfiddle.net/oya6ndka/4/ (jquery equivalent)
     */

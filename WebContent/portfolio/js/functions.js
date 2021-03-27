@@ -58,6 +58,5 @@ function progressbar_restart(origin, destination){
 
   $('#'+origin).progress_fnc({ type: 'reset' });
   $('#'+destination).progress_fnc({ type: 'start' });
-
-
 }
+
