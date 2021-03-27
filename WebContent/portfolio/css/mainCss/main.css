@@ -189,14 +189,14 @@ pageName span{
 	text-align: center;
 }
 
-.aboutPhoto{
+ .aboutPhoto{
 	background: url(../../images/KimMyeongHwan.jpg) no-repeat center center;
 	background-size: cover;
 	width: 334px;
 	height: 334px;
 	text-indent: -9999px;
 	margin: 0 auto;
-}
+} 
 
 .aboutIntro{
 	width: 490px;
