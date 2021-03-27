@@ -1,15 +1,15 @@
 
 function addJavascript(jsname) {// functions.js 불러오기
 
-  var th = document.getElementsByTagName('head')[0];
+	var th = document.getElementsByTagName('head')[0];
 
-  var s = document.createElement('script');
+	var s = document.createElement('script');
 
-  s.setAttribute('type', 'text/javascript');
+	s.setAttribute('type','text/javascript');
 
-  s.setAttribute('src', jsname);
+	s.setAttribute('src',jsname);
 
-  th.appendChild(s);
+	th.appendChild(s);
 
 }
 addJavascript('functions.js');
@@ -34,7 +34,6 @@ $(document).ready(function () {
       width: "0",
     });
   });
-
 
   //menu//
 
@@ -78,20 +77,17 @@ $(document).ready(function () {
   ];
 
   var index = 0;
-  var anchors = [
-    "1stPage",
-    "2ndPage",
-    "3rdPage",
-    "4thPage",
-    "5thPage",
-    "6thPage",
-    "7thPage",
-    "8thPage",
-  ];
-
-
-
-  //메인페이지 앨범아트, 각 페이지 셀카
+    var anchors = [
+      "1stPage",
+      "2ndPage",
+      "3rdPage",
+      "4thPage",
+      "5thPage",
+      "6thPage",
+      "7thPage",
+      "8thPage",
+    ];
+    //메인페이지 앨범아트, 각 페이지 셀카
   let li = $("#box > ul >li");
   let album = $("#box > ul >li > a > div");
   let selfiesection = $(".aboutphoto");
@@ -187,15 +183,16 @@ $(document).ready(function () {
     menu: "#menu",
     afterLoad: function (origin, destination, direction) {                                  //from stay
       if (origin) {
-        progressbar_start(origin.index, destination.index);
+        // progressbar_start(origin.index, destination.index);
         audioPlay(destination.index, info); // destination.index >> 현재 페이지 번호
+        progressbar_restart(origin.index, destination.index);
       }
-    },
+    }
   });
   //fullpage//
-
+  
   //progressbar reset하고 start하기
-  function progressbar_start() {
+  function progressbar_start(){
     let page = findActive();//페이지 번호
 
   }
@@ -203,38 +200,35 @@ $(document).ready(function () {
 
   //인원에 맞는 노래 플레이//
   //페이지에 맞는 번호와 audio index를 매칭해서 노래 플레이
-  function audioPlay(index, info) {                                                                //from stay
+  function audioPlay(index, audio) {                                                                //from stay
     if (index !== 0) {
       console.log("this is " + index);
-      console.log(info[index - 1]);
-      $("#realaudio").attr("src", info[index - 1].audiopath);
+      console.log(audio[index - 1]);
+      $("#realaudio").attr("src", audio[index - 1].audiopath);
       $("#realaudio").play;
       $("#realaudio").attr("class", "playing");
     } else {
       console.log("this is " + index);
-      console.log(info[index - 1]);
+      console.log(audio[index - 1]);
       $("#realaudio").attr("src", "");
     }
 
   };
 
-
 }); //전체 닫기
 
-function findActive() { /////////////////////////////현재 class에 active인 section 찾아 반환해준다.
+function findActive(){ /////////////////////////////현재 class에 active인 section 찾아 반환해준다.
 
   let page;
-  $(" div[class*=active]").each(function () {
+   $(" div[class*=active]").each(function () {
     // div중 class에 "active"가 포함된
     let id = $(this).attr("id");
     if (id !== undefined) {
-      console.log("id : " + id);
       if (id.includes("section")) {
         page = id.substring(id.length - 1);
       }
     }
   });
-  console.log("page : " + page);
   return page;
 
 };

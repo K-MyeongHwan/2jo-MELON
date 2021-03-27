@@ -8,22 +8,17 @@
   GitHub: https://github.com/rkchauhan
   CodePen: http://codepen.io/rkchauhan
 -------------------------------------------------------- */
+
 $(document).ready(function() {
-
-
-  $('#example-5').progress_fnc();
-
-
-
+  $('.progressbar').progress_fnc();
 });
 
-
 (function($) {
-
   $.fn.progress_fnc = function(options) {
+    // console.log("THIS IS FUNCTION.js");
     
     var settings = $.extend({
-      type: 'start'
+      type: 'reset'
     }, options);
 
     var div = $(this);
@@ -53,8 +48,16 @@ $(document).ready(function() {
         progress_bar.css('width', '0%');
         progress_label.text('0%');
       }
-
     });
   }
-
 }(jQuery));
+
+function progressbar_restart(origin, destination){
+  console.log("RESTART PAGE : " +origin)
+  console.log("RESET PAGE : " +destination)
+
+  $('#'+origin).progress_fnc({ type: 'reset' });
+  $('#'+destination).progress_fnc({ type: 'start' });
+
+
+}
