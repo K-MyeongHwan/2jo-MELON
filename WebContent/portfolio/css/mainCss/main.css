@@ -187,6 +187,10 @@ pageName span{
 
 #section1 .examples, #section2 .examples, #section3 .examples, #section4 .examples, #section5 .examples, #section6 .examples{
 	background: rgba(133, 136, 133, 0.2);
+
+}
+
+#section1 .examples, #section2 .examples, #section3 .examples, #section4 .examples, #section5 .examples, #section6 .examples{
 	margin-top:20px;
 }
 
@@ -471,7 +475,8 @@ pageName span{
 #section4{
 	background: rgb(185, 239, 255);
 	width: 100%;
-	padding: 51px 0;
+	height:100vh;
+
 }
 /**좌측메뉴**/
 .portfolio03 .mainPage{
