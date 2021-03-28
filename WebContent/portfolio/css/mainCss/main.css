@@ -122,9 +122,12 @@
 .pageName{
 	position: absolute;
 	top: 37px;
-	left: 192px;
-	font-size: 15px;
+	left:250px;
+	margin: auto;
+	text-align: center;
+	font-size: 20px;
 	font-weight: bold;
+	letter-spacing: 5px;
 }
 pageName span{
 	vertical-align: middle;
@@ -254,8 +257,8 @@ pageName span{
 }
 .name{
 	vertical-align: middle;
-	font-size: 20px;
-	font-weight: 600
+	font-size: 18px;
+	font-weight: 500
 }
 .sign{
 	vertical-align: middle;
@@ -272,6 +275,12 @@ pageName span{
 	height:300px;
 	margin-top: 30px;
 }
+.cssProgress-label-num{
+	position:absolute;
+	right:1px;
+}
+
+
 .aboutR dt{
 	font-size: 25px;
 	font-family: 'tmonmonsori', sans-serif;
@@ -546,7 +555,7 @@ pageName span{
 }
 /**좌측메뉴**/
 .portfolio05 .mainPage{
-	background: url(../../images/main04.png) no-repeat center center;
+
 	width: 231px;
 	height: 284px;
 	
