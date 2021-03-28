@@ -25,7 +25,7 @@ $(document).ready(function () {
 
 //이가희
       albumpath: "images/1.png",
-      audiopath: "music/Celebrity.mp3",
+      audiopath: "music/celebrity.mp3",
       selfiepath: "images/lkh.jpg",
       mbti: "images/mbti1.png"
     },
